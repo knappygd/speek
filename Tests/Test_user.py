@@ -144,3 +144,18 @@ class TestUser(unittest.TestCase):
                               "picture", "Uruguay", "Hi i am using speak")
         use = User.login("Leo", "password")
         self.assertEqual(use.Email, "email@gmail.com")
+    
+    def Test_delete_friend(self):
+        """a test to check if a freind is deleted of the friend lists"""
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        Friend1 = "Mishel"
+        Friend2 = "Diego"
+        User.AddFriend(leo, Friend1)
+        User.AddFriend(leo, Friend2)
+        lista = User.list_friends()
+        size1 = len(lista)
+        User.DeleteFriend("Diego")
+        lista = User.list_friends()
+        size2 = len(lista)
+        self.assertNotEquals(size1, size2)
