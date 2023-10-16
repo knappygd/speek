@@ -102,7 +102,7 @@ class TestUser(unittest.TestCase):
         leo = User.CreateUser("Leo", "password", "email@gmail.com",
                               "picture", "Uruguay", "Hi i am using speak")
         User.DeleteUser(leo)
-        self.assertEqual(leo.username, "Leo")
+        self.assertNotEqual(leo.username, "Leo")
 
     def Test_look_for_random(self):
         """this test the method of pair people in random"""
@@ -111,10 +111,36 @@ class TestUser(unittest.TestCase):
 
     def Test_list_Friend(self):
         """Test that the list of friends works"""
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        lista = leo.list_friends()
+        self.assertTrue(isinstance(lista, dict))
 
     def Test_add_Friend(self):
         """Test the add the list of freinds"""
-
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        Friend1 = "Mishel"
+        User.AddFriend(leo, Friend1)
+        lista = User.list_friends()
+        size1 = len(lista)
+        Friend2 = "Diego"
+        User.AddFriend(leo, Friend2)
+        lista = User.list_friends()
+        size2 = len(lista)
+        self.assertNotEquals(size1, size2)
+        
     def Test_search_user(self):
         """Test the function to search for a user
         by the username"""
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        use = User.SearchUser("Leo")
+        self.assertEqual(use.username, "Leo")
+
+    def Test_login(self):
+        """Test if the method login can find a user"""
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        use = User.login("Leo", "password")
+        self.assertEqual(use.Email, "email@gmail.com")

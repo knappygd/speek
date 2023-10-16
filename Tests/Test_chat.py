@@ -1,5 +1,6 @@
 import unittest
 from models import Chat
+from models import User
 
 class TestChat(unittest.TestCase):
     """test if the id exists an is created correctly as an uuid"""
@@ -18,3 +19,8 @@ class TestChat(unittest.TestCase):
 
     def Test_start_chat(self):
         """this test is for the creation of the chat"""
+        leo = User.CreateUser("Leo", "password", "email@gmail.com",
+                              "picture", "Uruguay", "Hi i am using speak")
+        Mishel = User.CreateUser("Mishi", "pass", "mail@gmail.com", "pic", "Uruguay", "GODDDDDDDDDDD")
+        Chit = Chat.StartChat(leo, Mishel)
+        self.assertTrue(Chit.User1 == "Leo" or Chit.User1 == "Mishel")
