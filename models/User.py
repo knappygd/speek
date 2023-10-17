@@ -3,6 +3,20 @@ import sqlalchemy
 from sqlalchemy import Column, String, DateTime, Integer, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from datetime import datetime
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+speeks = Table('speaks', Base.metadata,
+               Column('User_id', String(60),
+                      ForeignKey('User.id', onupdate='CASCADE',
+                                 ondelete='CASCADE'),
+                      primary_key=True),
+               Column('Lang_id', String(60),
+                      ForeignKey('Language.id', onupdate='CASCADE',
+                                 ondelete='CASCADE'),
+                      primary_key=True))
+
 
 class User():
     """Creation of the class User"""
@@ -17,16 +31,12 @@ class User():
     status = Column(Integer(128), nullable=False)
     country = Column(String(64), nullable=False)
     desc = Column(String(1024))
-    chat_id = Column(String(60), ForeignKey('Chat.chat_id'), nullable=False)
-    message_id = Column(String(60), ForeignKey('Message.message_id'), nullable=False)
-    language_id = Column(String(60), ForeignKey('Language.id'), nullable=False)
     chats = relationship("Chat",
-                              backref="chat",
-                              cascade="all, delete, delete-orphan")
+                         backref="chat",
+                         cascade="all, delete, delete-orphan")
     msg = relationship("Message",
-                              backref="messages",
-                              cascade="all, delete, delete-orphan")
+                       backref="messages",
+                       cascade="all, delete, delete-orphan")
     lan = relationship("Language",
-                                backref="languages",
-                                cascade="all, delete, delete-orphan")
-
+                       backref="languages",
+                       cascade="all, delete, delete-orphan")
