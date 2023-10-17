@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 import sqlalchemy
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from datetime import datetime
 
 class Language():
     """Creation of the class Language"""
