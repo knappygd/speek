@@ -9,3 +9,4 @@ class Language():
     id = Column(String(60), primary_key=True)
     language = Column(String(128))
     
+    

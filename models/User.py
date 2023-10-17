@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sqlalchemy
-from sqlalchemy import Column, String, DateTime, Integer
+from sqlalchemy import Column, String, DateTime, Integer, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
@@ -17,5 +17,16 @@ class User():
     status = Column(Integer(128), nullable=False)
     country = Column(String(64), nullable=False)
     desc = Column(String(1024))
+    chat_id = Column(String(60), ForeignKey('Chat.chat_id'), nullable=False)
+    message_id = Column(String(60), ForeignKey('Message.message_id'), nullable=False)
+    language_id = Column(String(60), ForeignKey('Language.id'), nullable=False)
+    chats = relationship("Chat",
+                              backref="chat",
+                              cascade="all, delete, delete-orphan")
+    msg = relationship("Message",
+                              backref="messages",
+                              cascade="all, delete, delete-orphan")
+    lan = relationship("Language",
+                                backref="languages",
+                                cascade="all, delete, delete-orphan")
 
-    
