@@ -17,3 +17,5 @@ class User():
     status = Column(Integer(128), nullable=False)
     country = Column(String(64), nullable=False)
     desc = Column(String(1024))
+
+    

@@ -8,3 +8,4 @@ class Topic():
     __tablename__ = 'topic'
     topic_id = Column(Integer, primary_key=True)
     topic = Column(String(128), primary_key=True)
+    
