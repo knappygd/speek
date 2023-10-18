@@ -28,56 +28,47 @@ This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.
 * ............
 
 ## File Descriptions
-(
-[console.py](console.py) - the console contains the entry point of the command interpreter. 
-List of commands this console current supports:
-* `EOF` - exits console 
-* `quit` - exits console
-* `<emptyline>` - overwrites default emptyline method and does nothing
-* `create` - Creates a new instance of`BaseModel`, saves it (to the JSON file) and prints the id
-* `destroy` - Deletes an instance based on the class name and id (save the change into the JSON file). 
-* `show` - Prints the string representation of an instance based on the class name and id.
-* `all` - Prints all string representation of all instances based or not on the class name. 
-* `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
-) This is not of the project but it is a example.
+``` ALGO VA ACA!!!!!! ```
 
-#### `models/` directory contains classes used for this project:
-[Chat.py](/models/Chat.py) - The Chat class is where all chat methods are located.
-* `def create_chat(self)` - Create a chat with two differents users.
-* `def delete_chat(self)` - Delete a chat that was created before.
-* `def search_chat(User, User)` - Search for all Chat class and return the one who have both Users.
-
-[Lenguages.py](/models/Lenguages.py) - The Lenguages class is where all lenguages methods are located.
-* `def list_lenguages(self)` - Show the list of all lenguages.
-
-[Message.py](/models/Message.py) - The Message class is where all messages methods are located.
-* `def send_message(self)` - Send a new message to the other user in the chat and save it on the list of messages.
-
-[Topic.py](/models/Topic.py) - The Topic class is where all topics methods are located.
-* `def topic_dict(self)` - Show random topics of a dict.
-
-[User.py](/models/User.py) - The User class is where all user methods are located.
-* `def create_user(self)` - Create a user with all his attributes.
-* `def mod_user(self)` - Modifie some attribute of a User.
-* `def del_user(self)` - Delete a user.
-* `def invite(self, username)` - Send a recuest to some user to be friends.
-* `def list_friends(self)` - Show all user friend.
-* `def change_status(self)` - Modifie the User status.
-* `def del_friend(self, username)` - Delete friend from user friends.
-* `def block_user(self, username)` - Add user to a block list.
-* `def report_user(username, reason)` - Add a report to the user report.
-* `def search_user(username)` - Search for a user in the database.
-* `def list_random_chat(self)` - Show all user in random list.
-* `def login(self, email, password)` - Log to the User who has this attributes.
+#### `models/engine/` directory contains methods used for this project:
+* `def delete_user(ex_user: str)` - Delete a user.
+* `def modify_user()` - Modify a user.
+* `def invite(user_name: str, new_friend: str)` - Lets a user send a friend request.
+* `def list_friends(user_name: str)-> List[Dict]` - List the friends of a user.
+* `def change_status(user_name: str)` - Let the user can change their status.
+* `def del_friednf(user: str, exFriend: str)` - Let a user to erase a friend of their friend list.
+* `def block_user(user_name: str)` - Let a user to block them so they will not be able to talk any longer.
+* `def report_user(reported: str)` - Sends a report to another user for misbehavior or some inapropiated behavior.
+* `def search_user(user_name: str) -> Dict` - Search for a user.
+* `def list_random_chat(user_name: str)` - Lists all your active random chats.
+* `def login(user_name: str, password: str)` - Verify the identity of the user an allow them to use the page.
+* `def send_message(sender: str, receiver: str, content: str)` - Let an user will be able to send a message to another user.
+* `def create_chat(User1: str, user2: str)` - Create a chat.
+* `def delete_chat(chat_id)` - Delete a chat when they finish their talk.
+* `def search_chat(user_name: str)-> Dict` - Looks for a chat a specific chat.
+* `def dictionary_topics()-> Dict` - Returns a dictionary with all the topics.
+* `def list_languages()-> List(str)` - Returns a list with all the languages supported by speek.
+* `def list_languages(user_name: str)-> List(str)` - Returns a list with all the languages of the user.
 
 #### `/tests` directory contains all unit test cases for this project:
 [/test_chat.py](/tests/test_chat.py) - Contains the TestChat classes.
 * `def Test_chat_id(self)`- Set up and test of id.
 * `def Test_start_chat(self)` - Start a new chat and test it.
 
+## Architecture
+Back-End: 
+* Django
+* SupaBase
+
+Front-End:
+* Java-Script
+* React
+
+External API's:
+* Chat GPT API
 
 ## Examples of use
-``` algo va aca!!!!!! ```
+``` ALGO VA ACA!!!!!! ```
 
 ## Bugs
 No known bugs at this time.
