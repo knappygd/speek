@@ -21,9 +21,7 @@ export default function SignUpLogin() {
             backgroundSize: 'cover'}} to='/login'>Log in</button>
           </NavLink>
           <p>or</p>
-          <NavLink to='/example' id="bloque">
           <button id='button-log' class='button-google'>Continue with Google</button>
-          </NavLink>
           <button id='button-log' class='button-facebook'>Continue with Facebook</button>
         </div>
       </div>

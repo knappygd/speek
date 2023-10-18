@@ -61,7 +61,6 @@ html, body {
     padding-bottom: 10px;
   }
   .button-signup {
-    text-align: center;
     margin-bottom: 10px;
     background-color: white;
   }
@@ -77,4 +76,8 @@ html, body {
   }
   .button-login-next{
     color: transparent;
+  }
+  #error-invisible{
+    display: none;
+    color: red;
   }
