@@ -5,7 +5,6 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
 
 speeks = Table('speaks', Base.metadata,
                Column('User_id', String(60),
@@ -37,3 +36,9 @@ class User():
     lan = relationship("Language",
                        secondary=speeks,
                             viewonly=False)
+
+
+#/methods of the user
+
+def List_Friends():
+    """A method to show all the friends the user has"""

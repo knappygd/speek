@@ -1,105 +1,71 @@
 #!/usr/bin/python3
-"""
-Contains the class DBStorage
-"""
+""" Contains all the methods of the database"""
+from typing import List, Dict
+import os
 
-import models
-from models.user import User
-from models.base_model import BaseModel, Base
-from models.languages import Language
-from models.chat import Chat
-from models.topic import Topic
-from models.message import Messages
-from os import getenv
-import sqlalchemy
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
-
-classes = {"User": User, "Language": Language,
-           "Chat": Chat, "Topic": Topic, "Message": Messages}
+from supabase import create_client, Client
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
 
 
-class DBStorage:
-    """interaacts with the MySQL database"""
-    __engine = None
-    __session = None
+#//methods of the user
 
-    def __init__(self):
-        """Instantiate a DBStorage object"""
-        HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
-        HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
-        HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
-        HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
-        HBNB_ENV = getenv('HBNB_ENV')
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HBNB_MYSQL_USER,
-                                             HBNB_MYSQL_PWD,
-                                             HBNB_MYSQL_HOST,
-                                             HBNB_MYSQL_DB))
-        if HBNB_ENV == "test":
-            Base.metadata.drop_all(self.__engine)
+def delete_user():
+    """A function so that a user can delete themselves"""
 
-    def all(self, cls=None):
-        """query on the current database session"""
-        new_dict = {}
-        for clss in classes:
-            if cls is None or cls is classes[clss] or cls is clss:
-                objs = self.__session.query(classes[clss]).all()
-                for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
-                    new_dict[key] = obj
-        return (new_dict)
+def modify_user():
+    """a function that lets the user modify one of its attributes"""
 
-    def new(self, obj):
-        """add the object to the current database session"""
-        self.__session.add(obj)
+def invite():
+    """a function that lets a user send a friend request"""
 
-    def save(self):
-        """commit all changes of the current database session"""
-        self.__session.commit()
+def list_friends(user_name: str)-> List[Dict]:
+    """A function that list the friends of a user"""
 
-    def delete(self, obj=None):
-        """delete from the current database session obj if not None"""
-        if obj is not None:
-            self.__session.delete(obj)
+def change_status():
+    """a function so that the user can change their status"""
 
-    def reload(self):
-        """reloads data from the database"""
-        Base.metadata.create_all(self.__engine)
-        sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(sess_factory)
-        self.__session = Session
+def del_friednf():
+    """a function that can allow a user to erase a friend of their friend list"""
 
-    def close(self):
-        """call remove() method on the private session attribute"""
-        self.__session.remove()
+def block_user():
+    """"a function that allows a user to block them so they will not be able to talk any longer"""
 
-    def get(self, cls, id):
-        """
-        Returns the object based on the class name and its ID, or
-        None if not found
-        """
-        if cls not in classes.values():
-            return None
+def report_user(user_name: str):
+    """a function that sends a report to another user for misbehavior or some inapropiated behavior"""
 
-        all_cls = models.storage.all(cls)
-        for value in all_cls.values():
-            if (value.id == id):
-                return value
+def search_user(user_name: str):
+    """a function that allows the search for a user"""
 
-        return None
+def list_random_chat():
+    """a function that lists all your active random chats"""
 
-    def count(self, cls=None):
-        """
-        count the number of objects in storage
-        """
-        all_class = classes.values()
+def login(user_name: str, password: str):
+    """a function to verify the identity of the user an allow them to use the page"""
 
-        if not cls:
-            count = 0
-            for clas in all_class:
-                count += len(models.storage.all(clas).values())
-        else:
-            count = len(models.storage.all(cls).values())
 
-        return count
+#// method of the message table
+def send_message():
+    """a function so that an user will be able to send a message to another user"""
+
+#// method of the chat table
+def create_chat():
+    """a function to create a chat"""
+
+def delete_chat():
+    """a function that allows to delete a chat when they finish their talk"""
+
+def search_chat(user_name: str)-> Dict:
+    """a function that looks for a chat a specific chat"""
+
+#// method of the Topic table
+def dictionary_topics()->Dict:
+    """a function that returns a dictionary with all the topics"""
+
+#// method of the Language table
+def list_languages()-> List(str):
+    """returns a list with all the languages suported by speek"""
+
+def list_languages(user_name: str)-> List(str):
+    """returns a list with all the languages of the user"""
