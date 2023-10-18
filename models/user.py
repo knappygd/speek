@@ -32,11 +32,8 @@ class User():
     country = Column(String(64), nullable=False)
     desc = Column(String(1024))
     chats = relationship("Chat",
-                         backref="chat",
-                         cascade="all, delete, delete-orphan")
-    msg = relationship("Message",
-                       backref="messages",
-                       cascade="all, delete, delete-orphan")
+                         secondary=User_chat,
+                            viewonly=False)
     lan = relationship("Language",
-                       backref="languages",
-                       cascade="all, delete, delete-orphan")
+                       secondary=speeks,
+                            viewonly=False)
