@@ -12,7 +12,7 @@ topics = {
     7: "Fashion",
     8: "Nature",
     9: "Art",
-    10: "Politics",
+    10: "Dc cinematic universe",
     11: "Science",
     12: "Books",
     13: "Friendship",
@@ -24,9 +24,14 @@ topics = {
     19: "Hobbies",
     20: "Animals",
     21: "Parties",
-    22: "Religion",
+    22: "Marvel cinematic universe",
     23: "Economy",
-    24: "Environment"
+    24: "Environment",
+    25: "Spiderman friend or foe",
+    26: "Artigas wanted to be Argentinian?",
+    27: "Memes",
+    28: "Board Games",
+    29: "Video Fames"
 }
 
 
