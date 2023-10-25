@@ -2,7 +2,7 @@
 """ Contains all the methods of the database"""
 from typing import List, Dict
 import os
-
+from datetime import datetime
 from supabase import create_client, Client
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -24,11 +24,13 @@ def delete_user(ex_user: str):
         user = supabase.table("users").delete().eq("username", ex_user)
     except:
         raise(Exception)
+
 def modify_user():
     """a function that lets the user modify one of its attributes"""
 
 def invite(user_name: str, new_friend: str):
     """a function that lets a user send a friend request"""
+    friends = supabase.table("link").insert({"linked_at": datetime.now, "sender_id": user_name})
 
 
 def list_friends(user_name: str)-> List[Dict]:
@@ -38,14 +40,18 @@ def list_friends(user_name: str)-> List[Dict]:
 def change_status(user_name: str):
     """a function so that the user can change their status"""
 
+
 def del_friednf(user: str, exFriend: str):
     """a function that can allow a user to erase a friend of their friend list"""
+
 
 def block_user(user_name: str):
     """"a function that allows a user to block them so they will not be able to talk any longer"""
 
+
 def report_user(reported: str):
     """a function that sends a report to another user for misbehavior or some inapropiated behavior"""
+
 
 def search_user(user_name: str) -> Dict:
     """a function that allows the search for a user"""
