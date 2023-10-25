@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+import unittest
+from models import Topics
+
+
+class Test_topics(unittest.TestCase):
+    """Test the topics"""
+
+    def Test_dict(self):
+        """test if the method returns a dictionary with the topics of the page"""
+        topic = Topics.dictionary_topics()
+        self.assertTrue(isinstance(topic, list))
+        self.assertEqual(topic[0][0], "Travel")

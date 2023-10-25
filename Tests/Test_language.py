@@ -1,23 +1,25 @@
+#!/usr/bin/python3
 import unittest
 from models import Language
+from models import User
+
 
 class Test_language(unittest.TestCase):
     """Test the class Language"""
-    def Test_language_id(self):
-        """test if the id exists an is created correctly as an uuid"""
-        inst1 = Language()
-        inst2 = Language()
-        for inst in [inst1, inst2]:
-            uuid = inst.id
-            with self.subTest(uuid=uuid):
-                self.assertIs(type(uuid), str)
-                self.assertRegex(uuid,
-                                 '^[0-9a-f]{8}-[0-9a-f]{4}'
-                                 '-[0-9a-f]{4}-[0-9a-f]{4}'
-                                 '-[0-9a-f]{12}$')
-        self.assertNotEqual(inst1.id, inst2.id)
 
     def Test_language_language(self):
+        """Test if the language value is created correctly"""
         lan = Language()
-        self.assertTrue(hasattr(lan,"language"))
+        self.assertTrue(hasattr(lan, "language"))
         self.assertEqual(lan.language, None)
+
+    def Test_list_all_languages(self):
+        """checks if it List all the languages of the page"""
+        langs = Language.list_languages()
+        self.assertTrue(isinstance(langs, list))
+
+    def Test_list_user_languages(self):
+        """checks if it List all the languages of the user"""
+        langs = Language.list_language_usu(User.search_user("LR17"))
+        self.assertTrue(isinstance(langs, list))
+        self.assertEqual(langs[0], "español")

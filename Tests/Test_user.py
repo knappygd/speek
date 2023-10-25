@@ -1,25 +1,18 @@
+#!/usr/bin/python3
 import unittest
 from datetime import datetime
 import time
-from engine import db_storage
+from models import User
 
 
 class TestUser(unittest.TestCase):
-    """Test the class User"""
+    """Test the User"""
 
-    def Test_user_id(self):
-        """test if the id exists an is created correctly as an uuid"""
-        inst1 = User()
-        inst2 = User()
-        for inst in [inst1, inst2]:
-            uuid = inst.id
-            with self.subTest(uuid=uuid):
-                self.assertIs(type(uuid), str)
-                self.assertRegex(uuid,
-                                 '^[0-9a-f]{8}-[0-9a-f]{4}'
-                                 '-[0-9a-f]{4}-[0-9a-f]{4}'
-                                 '-[0-9a-f]{12}$')
-        self.assertNotEqual(inst1.id, inst2.id)
+    def Test_search_user(self):
+        """Test the function to search for a user
+        by the special id"""
+        leo = User.search_user("LR17")
+        self.assertEqual(leo.username, "Leo")
 
     def Test_user_user_name(self):
         """Checks if the user has the username
@@ -87,75 +80,51 @@ class TestUser(unittest.TestCase):
 
     def Test_user_mod(self):
         """This will test if the function of modify a user works"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        User.modifyUser(leo, "pass", "l@gmail.com", "pic", "Uru", "Hi")
-        self.assertEqual(leo.username, "Leo")
-        self.assertEqual(leo.password, "pass")
-        self.assertEqual(leo.email, "l@gmail.com")
-        self.assertEqual(leo.picture, "pic")
-        self.assertEqual(leo.country, "Uru")
-        self.assertEqual(leo.description, "Hi")
+        leo = User.search_user("LR17")
+        User.modifyUser(leo, "password", "Contraseña")
+        self.assertEqual(leo.password, "Contraseña")
 
     def Test_user_delete(self):
         """This will test the function to delete a user"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        User.DeleteUser(leo)
+        leo = User.search_user("LR17")
+        User.self_delete(leo.username)
         self.assertNotEqual(leo.username, "Leo")
 
     def Test_look_for_random(self):
-        """this test the method of pair people in random"""
+        """this test the method of pair people in a random chat"""
         user = User.lookRandom()
         self.assertTrue(hasattr(user, "username"))
 
     def Test_list_Friend(self):
-        """Test that the list of friends works"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        lista = leo.list_friends()
+        """Test if the list of friends works"""
+        leo = User.search_user("LR17")
+        lista = User.list_friends(leo.id)
         self.assertTrue(isinstance(lista, dict))
 
     def Test_add_Friend(self):
-        """Test the add the list of freinds"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        Friend1 = "Mishel"
-        User.AddFriend(leo, Friend1)
-        lista = User.list_friends()
+        """Test if the add freind works"""
+        leo = User.search_user("LR17")
+        User.invite(leo, "Mishel")
+        lista = User.list_friends(leo.id)
         size1 = len(lista)
-        Friend2 = "Diego"
-        User.AddFriend(leo, Friend2)
-        lista = User.list_friends()
+        User.invite(leo, "Diego")
+        lista = User.list_friends(leo.id)
         size2 = len(lista)
         self.assertNotEquals(size1, size2)
-        
-    def Test_search_user(self):
-        """Test the function to search for a user
-        by the username"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        use = User.SearchUser("Leo")
-        self.assertEqual(use.username, "Leo")
 
     def Test_login(self):
         """Test if the method login can find a user"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        use = User.login("Leo", "password")
-        self.assertEqual(use.Email, "email@gmail.com")
-    
+        use = User.login("email@gmail.com", "password")
+        self.assertEqual(use.username, "leo")
+
     def Test_delete_friend(self):
-        """a test to check if a freind is deleted of the friend lists"""
-        leo = User.CreateUser("Leo", "password", "email@gmail.com",
-                              "picture", "Uruguay", "Hi i am using speak")
-        Friend1 = "Mishel"
-        Friend2 = "Diego"
-        User.AddFriend(leo, Friend1)
-        User.AddFriend(leo, Friend2)
+        """a test to check if a freind is removed of the friend lists"""
+        leo = User.search_user("LR17")
+        User.invite(leo, "Mishel")
+        User.invite(leo, "Diego")
         lista = User.list_friends()
         size1 = len(lista)
-        User.DeleteFriend("Diego")
+        User.remove_friend("Diego")
         lista = User.list_friends()
         size2 = len(lista)
         self.assertNotEquals(size1, size2)
