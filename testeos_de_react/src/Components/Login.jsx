@@ -18,7 +18,7 @@ export default function Login() {
           <input id='button-log' placeholder="Enter your email" class='button-signup'></input>
           <input type='password' id="button-log" placeholder="Enter your password" class='button-signup'></input>
           <div id="error-invisible" ref={error}>
-            <p>haces todo mal pibe</p>
+            <p>error</p>
           </div>
           <button id='button-log-login' class='button-login' onClick={aparecererror} style={{
             backgroundImage: `url(/Next_botton_Login.png)`,

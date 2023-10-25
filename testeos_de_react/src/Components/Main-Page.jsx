@@ -10,9 +10,10 @@ export default function MainPage() {
           <div id="people">
             <div id="randomchatbutton">
               <button id="randomchat">Random Chat</button>
+              <div id="stick" />
               <select name="languages" id="languageRCB">
                 <option value="eng">ENG</option>
-                <option value="spa">SPA</option>
+                <option value="ESP">ESP</option>
               </select>
               </div>
           </div>
