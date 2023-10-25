@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 import time
-from models import User
+from engine import db_storage
 
 
 class TestUser(unittest.TestCase):
