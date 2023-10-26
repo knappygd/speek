@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/python3
 """
 initialize the database
@@ -13,5 +12,3 @@ if storage_t == "db":
     from speek.models.API.v1 import DBStorage
     storage = DBStorage()
 storage.reload()
-=======
->>>>>>> 47e73fc72b776ef02d0f019082d29088615eaea7
