@@ -11,9 +11,20 @@ export default function LandingPage() {
             }}></div>
             <div id='login'>
                 <div id="bloque">
-                    <h1>SPEEK</h1>
+                    <div id="banner" style={{
+                        backgroundImage: `url(/speek_word_logo.jpg)`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover'
+                    }}></div>
                     <h2>¿Queres practicar un idioma?</h2>
                     <h3>Speek es una plataforma dirigida a poliglotas que tienen el objetivo de practicar un idioma</h3>
+                    <p>
+                        Este es nuestro proyecto final de el curso de Holberton school - Foundations in Computer Science,
+                        con esta plataforma trabajamos en todas las habilidades trabajadas a lo largo del año,
+                        desarrollando todo el proyecto, desde la planifiacion, organizacion, al desarrollo, testeo y produccion.
+                        Nuestra plataforma busca ayudar a poliglotas a practicar para recuperar o mejorar su nivel en un lenguaje.
+                    </p>
                     <NavLink to='/register' id="bloque">
                         <button id='button-log' class='button-login' style={{
                             backgroundImage: `url(/Next_botton_Login.png)`,
@@ -22,73 +33,14 @@ export default function LandingPage() {
                             backgroundSize: 'cover'
                         }} to='/register'>SPEEKEA CONMIGO :)</button>
                     </NavLink>
-                    <div id="bloque">
-                        <h3>Autores:</h3>
-                        <div>
-                            <div id="authors">
-                                <div id="pics">
-                                    <div id='pic' style={{
-                                        backgroundImage: `url(/lucas.jpg)`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                        backgroundSize: 'cover'
-                                    }}></div>
-                                    <div id="pic_text">
-                                        <a href="https://github.com/lucassoriabusto">Lucas Soria</a>
-                                        <p>Front-End and UX/UI Designer</p>
-                                    </div>
-                                </div>
-                                <div id="pics">
-                                    <div id='pic' style={{
-                                        backgroundImage: `url(/mishel.jpg)`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                        backgroundSize: 'cover'
-                                    }}></div>
-                                    <div id="pic_text">
-                                        <a href="https://github.com/Mishel450">Mishel Tomas</a>
-                                        <p>Front-End</p>
-                                    </div>
-                                </div>
-                                <div id="pics">
-                                    <div id='pic' style={{
-                                        backgroundImage: `url(/emilio.jpg)`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                        backgroundSize: 'cover'
-                                    }}></div>
-                                    <div id="pic_text">
-                                        <a href="https://github.com/knappygd">Emilio Damasco</a>
-                                        <p>Back-End</p>
-                                    </div>
-                                </div>
-                                <div id="pics">
-                                    <div id='pic' style={{
-                                        backgroundImage: `url(/leonardo.jpg)`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                        backgroundSize: 'cover'
-                                    }}></div>
-                                    <div id="pic_text">
-                                        <a href="https://github.com/LeoRod17">Leonardo Rodriguez</a>
-                                        <p>Full-Stack</p>
-                                    </div>
-                                </div>
-                                <div id="pics">
-                                    <div id='pic' style={{
-                                        backgroundImage: `url(/guillermo.jpg)`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundPosition: 'center',
-                                        backgroundSize: 'cover'
-                                    }}></div>
-                                    <div id="pic_text">
-                                        <a href="https://github.com/Korchea">Guillermo Vega</a>
-                                        <p>Full-Stack and Project Manager</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <NavLink to='/authors' id="bloque">
+                        <button id='button-log' class='button-login' style={{
+                            backgroundImage: `url(/Next_botton_Login.png)`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover'
+                        }} to='/authors'>AUTORES</button>
+                    </NavLink>
                 </div>
             </div>
         </div >

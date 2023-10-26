@@ -8,6 +8,7 @@ import SignUp from './Components/SignUp';
 import MainPage from './Components/Main-Page';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from './Components/Landing_Page';
+import Authors from './Components/Authors';
 
 // Definimos un componente funcional llamado "Contador"
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='' element={<LandingPage />} />
+          <Route path='authors' element={<Authors />} />
           <Route path='register' element={<SignUpLogin />} />
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<SignUp />} />

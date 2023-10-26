@@ -104,15 +104,15 @@ body {
 
 #pic {
   background-color: yellow;
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 
 }
 
 #pics {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -122,8 +122,13 @@ body {
 #pic_text {
   display: grid;
   text-align: center;
-  width: 100%;
+  width: 90%;
   font-size: large;
   text-decoration: none;
   padding-top: 5%;
+}
+
+#banner {
+  width: 600px;
+  height: 300px;
 }
