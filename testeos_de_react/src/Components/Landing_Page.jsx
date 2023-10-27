@@ -17,10 +17,10 @@ export default function LandingPage() {
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}></div>
-                    <h2>¿Queres practicar un idioma?</h2>
+                    <h2>¿Quieres practicar un idioma?</h2>
                     <h3>Speek es una plataforma dirigida a poliglotas que tienen el objetivo de practicar un idioma</h3>
                     <p>
-                        Este es nuestro proyecto final de el curso de Holberton school - Foundations in Computer Science,
+                        Este es nuestro proyecto final de Holberton school - Foundations in Computer Science,
                         con esta plataforma trabajamos en todas las habilidades trabajadas a lo largo del año,
                         desarrollando todo el proyecto, desde la planifiacion, organizacion, al desarrollo, testeo y produccion.
                         Nuestra plataforma busca ayudar a poliglotas a practicar para recuperar o mejorar su nivel en un lenguaje.
