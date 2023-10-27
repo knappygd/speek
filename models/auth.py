@@ -24,7 +24,9 @@ def signup(data):
 
 def signin(email, password):
     """Sign in a user with email and password."""
-    supabase.auth.sign_in_with_password({"email": email, "password": password})
+    session = supabase.auth.sign_in_with_password(
+        {"email": email, "password": password})
+    return session
 
 
 def signout():
@@ -39,4 +41,3 @@ def getuser():
 
 def getid(email):
     supabase.from_('users').select('id').eq('email', email)
-

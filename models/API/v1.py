@@ -38,7 +38,7 @@ def modify_user(user_id: str, column: str, data):
 def invite(user_id: str, new_friend: str):
     """Allows a user to send a friend request"""
     friends = supabase.table("link").insert(
-        {"linked_at": datetime.now, "sender_id": user_id})
+        {"linked_at": datetime.now, "sender_id": user_id, "receiver_id": new_friend})
 
 
 def list_friends(user_name: str) -> List[Dict]:
@@ -67,7 +67,8 @@ def report_user(reported: str):
 def search_user(custom_id: str) -> Dict:
     """Search a user by their Custom ID"""
     try:
-        user = supabase.table('users').select('id').eq('custom_id', custom_id).execute()
+        user = supabase.table('users').select(
+            'id').eq('custom_id', custom_id).execute()
         return user
     except:
         raise Exception()
