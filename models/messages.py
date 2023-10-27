@@ -10,6 +10,7 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
+
 userid = auth.getid()
 sent_at = str(datetime.now())
 chat_id = chat.generate_chat()
