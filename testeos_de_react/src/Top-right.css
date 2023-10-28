@@ -1,0 +1,10 @@
+#right{
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#Topright{
+  background-color: aqua;
+  flex: 0 0 10vh;
+  min-height: 80px;
+}

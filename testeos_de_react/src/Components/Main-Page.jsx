@@ -12,8 +12,8 @@ export default function MainPage() {
               <button id="randomchat">Random Chat</button>
               <div id="stick" />
               <select name="languages" id="languageRCB">
-                <option value="eng">ENG</option>
-                <option value="ESP">ESP</option>
+                <option value="eng" id="options">ENG</option>
+                <option value="esp" id="options">ESP</option>
               </select>
               </div>
           </div>
