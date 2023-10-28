@@ -9,8 +9,5 @@ from supabase import create_client, Client
 storage_t = getenv("HBNB_TYPE_STORAGE")
 
 if storage_t == "db":
-    from speek.models.API.v1 import DBStorage
+    from dev.speek.models.engine.db_storage import DBStorage
     storage = DBStorage()
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)

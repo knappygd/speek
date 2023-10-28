@@ -1,13 +1,18 @@
 #!/usr/bin/python3
 
 import os
+from supabase import create_client, Client
 from datetime import datetime
 from random import randint
 from models import messages
 from models import auth
 from models import chat
-import supabase
+
+
 # insert data in the users column
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
 
 created_at = str(datetime.now())
 updated_at = str(datetime.now())
@@ -28,6 +33,7 @@ data = {
 
 # auth.signup(data)
 sesion1 = auth.signin(data['email'], data['password'])
-you = auth.getuser()
-Chit = chat.generate_chat({"chat_id": 1, "user_1": you, "user_2": sesion1})
+other_user = chat.get_random_user()
+Chit = chat.generate_chat(
+    {"chat_id": 1, "user_1": sesion1, "user_2": other_user})
 messages.send_message('hi', Chit)
