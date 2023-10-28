@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import os
-from supabase import create_client, Client
+from supabase import create_client
 from datetime import datetime
 from random import randint
 from models import messages
@@ -12,7 +12,7 @@ from models import chat
 # insert data in the users column
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+supabase = create_client(url, key)
 
 created_at = str(datetime.now())
 updated_at = str(datetime.now())

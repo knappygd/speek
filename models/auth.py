@@ -2,11 +2,11 @@
 
 import os
 from flask import jsonify
-from supabase import create_client, Client
+from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+supabase = create_client(url, key)
 
 
 def signup(data):
