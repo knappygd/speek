@@ -108,7 +108,7 @@ def create_chat(user1: str, user2: str):
 def delete_chat(chat_id):
     """a function that allows to delete a chat when they finish their talk"""
     try:
-        chat = supabase.table("chat").delete().eq("chat_id", chat_id)
+        supabase.table("chat").delete().eq("chat_id", chat_id)
     except:
         raise Exception()
 

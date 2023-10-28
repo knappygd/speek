@@ -22,5 +22,13 @@ def list_languages() -> List(str):
         raise Exception()
 
 
-def list_languages(user_name: str) -> List(str):
+def list_languages(user_id: str) -> List(str):
     """returns a list with all the languages of the user"""
+    try:
+        languages = supabase.table("speaks").select('lang_id').eq(
+            'user_id', user_id).execute()
+        lang = supabase.table("languages").select(
+            '*').eq('id', languages).execute()
+        return lang
+    except:
+        raise Exception()

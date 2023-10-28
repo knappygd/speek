@@ -37,3 +37,11 @@ def generate_chat():
     }
     supabase.table('chats').insert(structure).execute()
     return chat_id
+
+
+def delete_chat(chat_id):
+    """a function that allows to delete a chat when they finish their talk"""
+    try:
+        supabase.table("chat").delete().eq("chat_id", chat_id)
+    except:
+        raise Exception()
