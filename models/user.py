@@ -11,7 +11,7 @@ supabase = create_client(url, key)
 def list_users():
     """method to list all users"""
     try:
-        data, count = supabase.from_('users').select('username').execute()
+        data = supabase.table('users').select('username').execute()
         return data
     except:
         raise Exception()
@@ -19,8 +19,5 @@ def list_users():
 
 def list_free_users():
     """a method to list all user with the status 1(they are free for random chat)"""
-    try:
-        data, count = supabase.from_('users').select('username').eq('status', 1).execute()
-        return data
-    except:
-        raise Exception()
+    data = supabase.table('users').select('username').eq('status', 1).execute()
+    return data
