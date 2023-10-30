@@ -16,10 +16,10 @@ chat_id = uuid.uuid4()
 
 
 def get_random_user():
-    records = user.list_free_users()
+    records = user.list_users()
     rand = random.randint(0, len(records) - 1)
     random_userid = supabase.table('users').select(
-        'id').range(0, rand).limit(1).execute()
+        'email').range(0, rand).limit(1).execute()
     return str(random_userid)
 
 print(supabase)

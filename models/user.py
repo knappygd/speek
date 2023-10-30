@@ -11,8 +11,8 @@ supabase = create_client(url, key)
 def list_users():
     """method to list all users"""
     try:
-        users = supabase.table("users").select('*').execute()
-        return users
+        data, count = supabase.from_('users').select('username').execute()
+        return data
     except:
         raise Exception()
 

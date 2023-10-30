@@ -34,6 +34,7 @@ data = {
 # auth.signup(data)
 sesion1 = auth.signin(data['email'], data['password'])
 other_user = chat.get_random_user()
+user2 = auth.getuser(other_user)
 Chit = chat.generate_chat(
-    {"chat_id": 1, "user_1": sesion1, "user_2": other_user})
+    {"user_1": sesion1, "user_2": other_user})
 messages.send_message('hi', Chit)
