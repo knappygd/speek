@@ -1,5 +1,5 @@
 
-import "./Card.css";
+import "../CSS/Card.css";
 
 export default function Card({ title = "titulo por defecto",
   description = "descripcion por defecto" }) {

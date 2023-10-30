@@ -1,4 +1,4 @@
-import "./Search_friends.css"
+import "../CSS/Search_friends.css"
 
 export default function SearchFriends() {
     return (

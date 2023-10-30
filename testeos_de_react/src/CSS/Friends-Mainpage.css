@@ -1,0 +1,37 @@
+#left-friends{
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(186, 64, 64);
+  width: 25vw;
+  overflow: hidden;
+}
+
+#temporary_chats {
+  flex: 0 0 50%; /* El contenido dentro de #temporary_chats ocupa el 100% del espacio vertical de #left-friends. */
+  background-color: rgb(30, 255, 0); /* Color de fondo de #temporary_chats (puedes personalizarlo). */
+  width: 100%;
+}
+
+#Random_chat {
+  background-color: rgb(245, 245, 17);
+  width: 90%;
+  height: 60px;
+
+  border-radius: 20px;
+}
+
+#friends_chats {
+  display: flex;
+  /*gap: 10px;*/
+  flex-wrap: wrap;
+  /* Alinea verticalmente*/
+  background-color: rgb(66, 28, 137);
+  width: 100%;
+}
+
+#cont{
+  height: 50%;
+  overflow-y: auto;
+}
