@@ -12,9 +12,18 @@ export default function Friends() {
       <div id='temporary_chats'>
         <h1>ddsfs</h1>
       </div>
+      <div id='cont-all'>
+        <div id='friendsplus'>
+          <div>
+            friends
+          </div>
+        </div>
       <div id='cont'>
-      <div id="friends_chats">
-        {users_list}</div></div>
+          <div id="friends_chats">
+            {users_list}
+          </div>
+        </div>
       </div>
+    </div>
   )
 }

@@ -3,13 +3,12 @@
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(186, 64, 64);
+  background-color: white;
   width: 25vw;
-  overflow: hidden;
 }
 
 #temporary_chats {
-  flex: 0 0 50%; /* El contenido dentro de #temporary_chats ocupa el 100% del espacio vertical de #left-friends. */
+  flex: 0 0 calc(50vh - 80px); /* El contenido dentro de #temporary_chats ocupa el 100% del espacio vertical de #left-friends. */
   background-color: rgb(30, 255, 0); /* Color de fondo de #temporary_chats (puedes personalizarlo). */
   width: 100%;
 }
@@ -32,6 +31,20 @@
 }
 
 #cont{
-  height: 50%;
+  height: auto;
   overflow-y: auto;
+  flex: 1 0 100%;
+}
+
+#cont-all{
+  height: calc(50vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+#friendsplus{
+  min-height: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
 }
