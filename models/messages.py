@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-import datetime
+from datetime import datetime
 import os
-import auth
-import chat
+from models import auth
+from models import chat
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
@@ -11,7 +11,7 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 
-userid = auth.getid()
+userid = auth.getid(supabase.table('user').select('id'))
 sent_at = str(datetime.now())
 chat_id = chat.generate_chat()
 

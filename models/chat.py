@@ -2,7 +2,8 @@
 
 import datetime
 import os
-import auth
+from models import auth
+from models import user
 import uuid
 import random
 from supabase import create_client
@@ -15,14 +16,14 @@ chat_id = uuid.uuid4()
 
 
 def get_random_user():
-    records = supabase.table('users').select("COUNT(*)").execute().get("count")
-    rand = random.randint(0, records - 1)
+    records = user.list_free_users()
+    rand = random.randint(0, len(records) - 1)
     random_userid = supabase.table('users').select(
-        'id').offset(rand).limit(1).execute()
+        'id').range(0, rand).limit(1).execute()
     return str(random_userid)
 
-
-user_1 = auth.getid()
+print(supabase)
+user_1 = auth.getuser()
 user_2 = get_random_user()
 if user_2 == user_1:
     while user_2 == user_1:
@@ -35,7 +36,7 @@ def generate_chat():
         'user_1': user_1,
         'user_2': user_2,
     }
-    supabase.table('chats').insert(structure).execute()
+    supabase.table('chat').insert(structure).execute()
     return chat_id
 
 

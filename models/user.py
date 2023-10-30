@@ -20,7 +20,7 @@ def list_users():
 def list_free_users():
     """a method to list all user with the status 1(they are free for random chat)"""
     try:
-        users = supabase.table("users").select('*').eq('status', 1).execute()
-        return users
+        data, count = supabase.from_('users').select('username').eq('status', 1).execute()
+        return data
     except:
         raise Exception()

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import os
-from flask import jsonify
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
