@@ -5,6 +5,6 @@
   background-color: rgb(93, 30, 210);
 }
 #Topleft{
-  flex: 0 0 10vh;
+  flex: 0 0 80px;
   min-height: 80px;
 }

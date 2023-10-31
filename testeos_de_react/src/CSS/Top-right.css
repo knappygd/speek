@@ -5,6 +5,6 @@
 }
 #Topright{
   background-color: rgb(77, 104, 104);
-  flex: 0 0 10vh;
+  flex: 0 0 80px;
   min-height: 80px;
 }
