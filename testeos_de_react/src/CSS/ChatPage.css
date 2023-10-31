@@ -10,6 +10,8 @@
 }
 #chat{
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 #contenedor-de-la-barra{
   flex: 0 0 80px;
@@ -37,3 +39,35 @@
   width: 40px;
   height: 40px;
 }
+.msj_box{
+  display: flex;
+  width: fit-content;
+  min-height: 60px;
+  font-size: larger;
+}
+#sender{
+  background-color: blue;
+  align-items: center;
+  max-width: 40%;
+}
+#receiver{
+  background-color: yellow;
+  align-items: center;
+  max-width: 40%;
+}
+
+#blockmessage1, #blockmessage2{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#cont-chat{
+  flex: 0 0 calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+#blockmessage1{
+flex-direction: row-reverse;
+}
+
+

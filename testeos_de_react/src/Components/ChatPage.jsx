@@ -40,8 +40,10 @@ export default function Chatpage({ user_id, onCardClick }) {
       backgroundPosition: 'center',
       backgroundSize: 'cover'
     }}>
+      <div id="cont-chat">
       <div id="chat">
         {messages}
+      </div>
       </div>
       <div id="contenedor-de-la-barra">
         <form id="cont-barra">
