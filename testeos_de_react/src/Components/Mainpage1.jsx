@@ -8,20 +8,20 @@ import SearchFriends from "./Search_friends"
 export default function Mainpage1() {
   const [toprightTitle, setToprightTitle] = useState(null);
 
-  const handleCardClick = (title) => {
-    setToprightTitle(title);
+  const handleCardClick = (user_id) => {
+    setToprightTitle(user_id);
   };
 
   return (
     <div id="container-mainpage1">
       <div id="left">
         <Topleft />
-        <Friends onCardClick={handleCardClick}/>
+        <Friends onCardClick={handleCardClick} />
         <SearchFriends />
-    </div>
-        <div id="right">
-          <Topright title={toprightTitle} />
-         <Chatpage />
+      </div>
+      <div id="right">
+        <Topright user_id={toprightTitle} />
+        <Chatpage />
       </div>
     </div>
   )

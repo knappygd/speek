@@ -1,8 +1,8 @@
 import "../CSS/Card.css";
 
-export default function Card({ title = "titulo por defecto", onCardClick}) {
+export default function Card({ title = "titulo por defecto", onCardClick, user_id }) {
   const handleCardClick = () => {
-    onCardClick(title);
+    onCardClick(user_id);
   };
 
   return (

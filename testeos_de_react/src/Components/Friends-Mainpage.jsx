@@ -4,15 +4,16 @@ import data_users from "../Data/data_users";
 
 export default function Friends({ onCardClick }) {
 
-  const handleCardClick = (title) => {
-    onCardClick(title);
+  const handleCardClick = (id) => {
+    onCardClick(id);
   };
 
   const users_list = data_users.map(i => {
-    return <Card 
-    title={i.name}
-    description={i.description}
-    onCardClick={handleCardClick} />
+    return <Card
+      title={i.name}
+      description={i.description}
+      user_id={i.id}
+      onCardClick={handleCardClick} />
   })
 
   return (
@@ -26,7 +27,7 @@ export default function Friends({ onCardClick }) {
             friends
           </div>
         </div>
-      <div id='cont'>
+        <div id='cont'>
           <div id="friends_chats">
             {users_list}
           </div>

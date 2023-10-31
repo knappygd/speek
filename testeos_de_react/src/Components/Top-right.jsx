@@ -1,7 +1,19 @@
-export default function Topright({ title }) {
+import data_users from "../Data/data_users";
+
+
+export default function Topright({ user_id }) {
+
+  let title = "Holaaaaa";
+  for (const user of data_users) {
+    if (user.id === user_id) {
+      title = user.name;
+    }
+  };
+
+
   return (
     <div id="Topright">
-      <h1> {title ? title : "Holaaaa"} </h1>
+      <h1> {title} </h1>
     </div>
   )
 }
