@@ -59,42 +59,42 @@ let data_messages = [
 
 
     {
-        message_id: 10,
+        message_id: 0,
         content: "Hola wachin!!",
         sender: 1,
         receiver: 20,
         chat_id: 1
     },
     {
-        message_id: 11,
+        message_id: 1,
         content: "Que haces pibe?",
         sender: 1,
         receiver: 20,
         chat_id: 1
     },
     {
-        message_id: 12,
+        message_id: 2,
         content: "Bien y vos loco?",
         sender: 20,
         receiver: 1,
         chat_id: 1
     },
     {
-        message_id: 13,
+        message_id: 3,
         content: "Loco?",
         sender: 20,
         receiver: 1,
         chat_id: 1
     },
     {
-        message_id: 14,
+        message_id: 4,
         content: "Seguis vivo?",
         sender: 20,
         receiver: 1,
         chat_id: 1
     },
     {
-        message_id: 15,
+        message_id: 5,
         content: "...",
         sender: 20,
         receiver: 1,
@@ -104,28 +104,28 @@ let data_messages = [
 
 
     {
-        message_id: 20,
+        message_id: 0,
         content: "Hola!!",
         sender: 2,
         receiver: 20,
         chat_id: 2
     },
     {
-        message_id: 21,
+        message_id: 1,
         content: "Que hace wacho?",
         sender: 2,
         receiver: 20,
         chat_id: 2
     },
     {
-        message_id: 22,
+        message_id: 2,
         content: "Bien y vos panflin?",
         sender: 20,
         receiver: 2,
         chat_id: 2
     },
     {
-        message_id: 23,
+        message_id: 3,
         content: "Ja! Bloqueado",
         sender: 2,
         receiver: 20,
@@ -134,21 +134,21 @@ let data_messages = [
 
 
     {
-        message_id: 30,
+        message_id: 0,
         content: "Adios!!",
         sender: 3,
         receiver: 20,
         chat_id: 3
     },
     {
-        message_id: 31,
+        message_id: 1,
         content: "Me voy!!!!!",
         sender: 3,
         receiver: 20,
         chat_id: 3
     },
     {
-        message_id: 32,
+        message_id: 2,
         content: "Saludos a tu vieja",
         sender: 20,
         receiver: 3,
@@ -158,21 +158,21 @@ let data_messages = [
 
 
     {
-        message_id: 40,
+        message_id: 0,
         content: "Hola capo!!",
         sender: 4,
         receiver: 20,
         chat_id: 4
     },
     {
-        message_id: 41,
+        message_id: 1,
         content: "Que haces?",
         sender: 4,
         receiver: 20,
         chat_id: 4
     },
     {
-        message_id: 42,
+        message_id: 2,
         content: "Bien y vos pa?",
         sender: 20,
         receiver: 4,
