@@ -20,9 +20,18 @@ export default function Friends({ onCardClick }) {
       <div id='temporary_chats'>
         <h1>Random Chats Box</h1>
       </div>
+      <div id='cont-all'>
+        <div id='friendsplus'>
+          <div>
+            friends
+          </div>
+        </div>
       <div id='cont'>
-        <div id="friends_chats">
-          {users_list}</div></div>
+          <div id="friends_chats">
+            {users_list}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

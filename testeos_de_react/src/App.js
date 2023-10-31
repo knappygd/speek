@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import './Main-Page.css';
 import './CSS/Friends-Mainpage.css';
 import './CSS/ChatPage.css';
 import './CSS/Top-left.css';
