@@ -8,13 +8,13 @@ from supabase import create_client, Client
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
-
+session_ = None
 
 # Methods of the user
 def sign_up(email, password):
     """Signs up a user"""
     try:
-        res = supabase.auth.sign_up({
+        session_ = supabase.auth.sign_up({
             'email': email,
             'password': password,
         })

@@ -15,28 +15,14 @@ supabase = create_client(url, key)
 chat_id = uuid.uuid4()
 
 
-def get_random_user():
-    records = user.list_users()
-    rand = random.randint(0, len(records) - 1)
-    random_userid = supabase.table('users').select(
-        'email').range(0, rand).limit(1).execute()
-    return str(random_userid)
-
-print(supabase)
-user_1 = auth.getuser()
-user_2 = get_random_user()
-if user_2 == user_1:
-    while user_2 == user_1:
-        user_2 = get_random_user()
-
-
 def generate_chat():
     structure = {
-        'chat_id': chat_id,
-        'user_1': user_1,
-        'user_2': user_2,
+        'chat_id': str(chat_id),
+        'user_1': "a89136d5-9fee-465e-af62-8b7c49c197ff",
+        'user_2': "061bcaeb-c60b-44ed-bac1-58c2a151d119",
+        'topic_id': 1,
     }
-    supabase.table('chat').insert(structure).execute()
+    supabase.table('chats').insert(structure).execute()
     return chat_id
 
 
@@ -46,3 +32,10 @@ def delete_chat(chat_id):
         supabase.table("chat").delete().eq("chat_id", chat_id)
     except:
         raise Exception()
+
+def search_chat(friend):
+    """a function that search for the chat of the user"""
+    ch = supabase.table('chat').select('chat_id, users(id)').eq('username',friend)
+    
+    return ch
+

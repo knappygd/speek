@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
 import os
+import json
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
+session = None
 
 
 def signup(data):
@@ -25,6 +27,14 @@ def signin(email, password):
     """Sign in a user with email and password."""
     session = supabase.auth.sign_in_with_password(
         {"email": email, "password": password})
+    uid = supabase.table('users').select('id').eq('email', email).execute()
+    data = {
+        'email': email,
+        'password': password,
+        'id': str(uid),
+    }
+    with open('session.json', 'w') as f:
+        json.dump(data, f)
     return session
 
 

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-from datetime import datetime
 import os
-from models import auth
-from models import chat
+import json
+import asyncio
+import websockets
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
@@ -11,28 +11,27 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 
-userid = auth.getid(supabase.table('user').select('id'))
-sent_at = str(datetime.now())
-chat_id = chat.generate_chat()
+def send_message(content, to_user, in_chat):
+    with open('session.json', 'r') as f:
+        data = json.load(f)
 
-response = supabase.sql(f"""
-    SELECT messages.*, chat.receiver_info
-    FROM messages AS messages
-    INNER JOIN chats AS chats
-    ON messages.chat_id = chats.chat_id
-    WHERE messages.chat_id = {chat}
-""")
-
-for row in response.data:
-    receiver = row['receiver']
-
-
-def send_message(message, chat=chat_id):
     structure = {
-        'content': message,
-        'sender': userid,
-        'receiver': receiver,
-        'sent_at': sent_at,
-        'chat_id': chat
+        'content': content,
+        'sender': data['id'][14:50],
+        'receiver': to_user,
+        'chat_id': in_chat
     }
+
+    async def client():
+        uri = "ws://localhost:8765"
+        async with websockets.connect(uri) as websocket:
+            message = content
+            await websocket.send(message)
+            print(f"Sent to server: {message}")
+
+            response = await websocket.recv()
+            print(f"Received from server: {response}")
+
+    asyncio.get_event_loop().run_until_complete(client())
+
     supabase.table('messages').insert(structure).execute()
