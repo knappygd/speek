@@ -1,10 +1,11 @@
-#left{
-  display:flex;
+#left {
+  display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: rgb(93, 30, 210);
+  background-color: #4d6868;
 }
-#Topleft{
+
+#Topleft {
   flex: 0 0 80px;
   min-height: 80px;
 }

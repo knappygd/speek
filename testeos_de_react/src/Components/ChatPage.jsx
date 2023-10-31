@@ -1,15 +1,9 @@
-import data_chat from "../Data/data_chat";
 import data_messages from "../Data/data_messages";
 import data_user_chat from "../Data/data_user_chat";
-import data_user_messages from "../Data/data_user_messages";
 import Message from "./Message";
 
 
-export default function Chatpage({ user_id, onCardClick }) {
-
-  const handleCardClick = (id) => {
-    onCardClick(id);
-  };
+export default function Chatpage({ user_id }) {
 
   let chat_id = 1000;
   for (const chat of data_user_chat) {
@@ -28,8 +22,7 @@ export default function Chatpage({ user_id, onCardClick }) {
   let messages = message_list.map(i => {
     return <Message
       sender={i.sender}
-      content={i.content}
-      onCardClick={handleCardClick} />
+      content={i.content} />
   });
 
 
@@ -41,9 +34,9 @@ export default function Chatpage({ user_id, onCardClick }) {
       backgroundSize: 'cover'
     }}>
       <div id="cont-chat">
-      <div id="chat">
-        {messages}
-      </div>
+        <div id="chat">
+          {messages}
+        </div>
       </div>
       <div id="contenedor-de-la-barra">
         <form id="cont-barra">

@@ -19,12 +19,22 @@ export default function Friends({ onCardClick }) {
   return (
     <div id="left-friends">
       <div id='temporary_chats'>
-        <h1>Random Chats Box</h1>
+        <div id="people">
+          <div id="randomchatbutton">
+            <button id="randomchat">Random Chat</button>
+            <div id="stick">
+              <select name="languages" id="languageRCB">
+                <option value="eng" id="options">ENG</option>
+                <option value="esp" id="options">ESP</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
       <div id='cont-all'>
         <div id='friendsplus'>
           <div>
-            friends
+            Friends
           </div>
         </div>
         <div id='cont'>

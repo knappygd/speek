@@ -74,7 +74,7 @@ let data_messages = [
     },
     {
         message_id: 2,
-        content: "Bien y vos loco?",
+        content: "Nada y vos loco?",
         sender: 20,
         receiver: 1,
         chat_id: 1
