@@ -21,7 +21,7 @@ export default function Mainpage1() {
       </div>
       <div id="right">
         <Topright user_id={toprightTitle} />
-        <Chatpage />
+        <Chatpage user_id={toprightTitle} />
       </div>
     </div>
   )
