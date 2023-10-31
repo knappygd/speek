@@ -1,9 +1,7 @@
-import { username } from "./Card";
-
-export default function Topright() {
+export default function Topright({ title }) {
   return (
     <div id="Topright">
-      <h3>{username}</h3>
+      <h1> {title ? title : "Holaaaa"} </h1>
     </div>
   )
 }
