@@ -48,5 +48,7 @@ def getuser():
     print(data)
 
 
-def getid(email):
-    supabase.from_('users').select('id').eq('email', email)
+def getid():
+    with open('session.json', 'r') as f:
+        data = json.load(f)
+    return data['id'][14:50]

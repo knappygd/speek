@@ -7,6 +7,7 @@ from random import randint
 from models import messages
 from models import auth
 from models import chat
+from models import listener
 
 
 # insert data in the users column
@@ -33,5 +34,8 @@ data = {
 
 # auth.signup(data)
 auth.signin(data['email'], data['password'])
-messages.send_message('this is a message', 'a89136d5-9fee-465e-af62-8b7c49c197ff',
-                      'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
+listener.listen('ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
+""" while True:
+    message = input("type your message: ")
+    messages.send_message(message, 'a89136d5-9fee-465e-af62-8b7c49c197ff',
+                          'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4') """

@@ -2,8 +2,6 @@
 
 import os
 import json
-import asyncio
-import websockets
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
@@ -22,7 +20,7 @@ def send_message(content, to_user, in_chat):
         'chat_id': in_chat
     }
 
-    async def client():
+    """ async def client():
         uri = "ws://localhost:8765"
         async with websockets.connect(uri) as websocket:
             message = content
@@ -32,6 +30,6 @@ def send_message(content, to_user, in_chat):
             response = await websocket.recv()
             print(f"Received from server: {response}")
 
-    asyncio.get_event_loop().run_until_complete(client())
+    asyncio.get_event_loop().run_until_complete(client()) """
 
     supabase.table('messages').insert(structure).execute()

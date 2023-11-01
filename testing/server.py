@@ -3,6 +3,7 @@
 import asyncio
 import websockets
 
+
 async def server(websocket, path):
     try:
         async for message in websocket:
