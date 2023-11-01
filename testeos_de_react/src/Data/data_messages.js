@@ -95,7 +95,7 @@ let data_messages = [
     },
     {
         message_id: 5,
-        content: "...",
+        content: "Papa? .........",
         sender: 20,
         receiver: 1,
         chat_id: 1
@@ -112,14 +112,14 @@ let data_messages = [
     },
     {
         message_id: 1,
-        content: "Que hace wacho?",
+        content: "Are You a Boy? Or Are You a Girl?",
         sender: 2,
         receiver: 20,
         chat_id: 2
     },
     {
         message_id: 2,
-        content: "Bien y vos panflin?",
+        content: "Panflin",
         sender: 20,
         receiver: 2,
         chat_id: 2
