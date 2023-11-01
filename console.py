@@ -33,3 +33,5 @@ data = {
 
 # auth.signup(data)
 auth.signin(data['email'], data['password'])
+messages.send_message('this is a message', 'a89136d5-9fee-465e-af62-8b7c49c197ff',
+                      'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
