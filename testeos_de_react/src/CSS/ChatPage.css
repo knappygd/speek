@@ -62,12 +62,14 @@
   background-color: orange;
   align-items: center;
   max-width: 40%;
+  margin-right: 20px;
 }
 
 #receiver {
   background-color: gray;
   align-items: center;
   max-width: 40%;
+  margin-left: 20px;
 }
 
 #blockmessage1,

@@ -4,7 +4,7 @@
   height: 100vh;
 }
 #Topright{
-  background-color: rgb(77, 104, 104);
+  background-color: rgb(255, 255, 255);
   flex: 0 0 80px;
   min-height: 80px;
 }
