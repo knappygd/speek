@@ -5,7 +5,7 @@ import websockets
 
 
 async def client1():
-    uri = "ws://localhost:8765"
+    uri = "tcp://0.tcp.ngrok.io:17992"
     async with websockets.connect(uri) as websocket:
         while True:
             message = input("Client 1: Enter a message (or 'exit' to quit): ")
