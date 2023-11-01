@@ -11,6 +11,7 @@ import SignUp from './Components/SignUp';
 import MainPage from './Components/Main-Page';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from './Components/Landing_Page';
+import LandingPage2 from './Components/Landing_Page2';
 import Authors from './Components/Authors';
 import Mainpage1 from './Components/Mainpage1';
 
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='' element={<LandingPage />} />
+          <Route path='landing' element={<LandingPage2 />} />
           <Route path='authors' element={<Authors />} />
           <Route path='register' element={<SignUpLogin />} />
           <Route path='login' element={<Login />} />
