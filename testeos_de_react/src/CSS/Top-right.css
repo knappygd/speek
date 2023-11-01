@@ -1,10 +1,15 @@
-#right{
-  display:flex;
+#right {
+  display: flex;
   flex-direction: column;
   height: 100vh;
 }
-#Topright{
+
+#Topright {
   background-color: rgb(255, 255, 255);
   flex: 0 0 80px;
   min-height: 80px;
+}
+
+h1 {
+  margin-left: 20px;
 }

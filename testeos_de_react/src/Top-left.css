@@ -1,9 +1,0 @@
-#left{
-  display:flex;
-  flex-direction: column;
-  height: 100vh;
-}
-#Topleft{
-  flex: 0 0 10vh;
-  min-height: 80px;
-}
