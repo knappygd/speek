@@ -4,6 +4,9 @@ import Message from "./Message";
 
 
 export default function Chatpage({ user_id }) {
+  let displaynone = {
+    display: "none"
+  }
 
   let chat_id = 1000;
   for (const chat of data_user_chat) {
@@ -39,10 +42,10 @@ export default function Chatpage({ user_id }) {
         </div>
       </div>
       <div id="contenedor-de-la-barra">
-        <form id="cont-barra">
+        <div id="cont-barra" style={displaynone}>
           <input type="text" placeholder="Type a message..." id="barra"></input>
           <input type="submit" id="enviar-mensaje"></input>
-        </form>
+        </div>
       </div>
     </div>
   )

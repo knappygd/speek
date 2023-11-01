@@ -13,7 +13,8 @@ export default function Friends({ onCardClick }) {
       title={i.name}
       description={i.description}
       user_id={i.id}
-      onCardClick={handleCardClick} />
+      onCardClick={handleCardClick}
+    />
   })
 
   return (
