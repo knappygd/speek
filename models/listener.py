@@ -15,15 +15,15 @@ def listen(chat_id):
     receiver = supabase.table('chats').select(
         'user_1').eq('chat_id', chat_id).execute()
     receiver = str(receiver)[18:54]
-    if auth.getid() == receiver:
+    if auth.getid() != receiver:
         receiver = supabase.table('chats').select(
             'user_2').eq('chat_id', chat_id).execute()
         receiver = str(receiver)[18:54]
     while True:
         data = supabase.table('messages').select('content').match(
-            {'sender': receiver, 'chat_id': chat_id}).order('messages_id', desc=True).limit(1).execute()
+            {'receiver': receiver, 'chat_id': chat_id}).order('messages_id', desc=True).limit(1).execute()
         message_id = supabase.table('messages').select('messages_id').match(
-            {'sender': receiver, 'chat_id': chat_id}).order('messages_id', desc=True).limit(1).execute()
+            {'receiver': receiver, 'chat_id': chat_id}).order('messages_id', desc=True).limit(1).execute()
         message_id = str(message_id)[22:-13]
         with open('models/messages_cache.json', 'r') as f:
             data = json.load(f)
