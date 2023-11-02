@@ -6,6 +6,10 @@ import Message from "./Message";
 export default function Chatpage({ user_id }) {
   let displaynone = {
     display: "none"
+  };
+
+  if (user_id !== null) {
+    displaynone = {};
   }
 
   let chat_id = 1000;

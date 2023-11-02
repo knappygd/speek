@@ -91,7 +91,7 @@ export default function LandingPage2() {
                                 <div id="ico">
                                     <a href="https://github.com/lucassoriabusto">
                                         <div id='pic' style={{
-                                            backgroundImage: `url(/GitHub-icon.png)`,
+                                            backgroundImage: `url(/lucas_qr.png)`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             backgroundSize: 'cover'
@@ -113,7 +113,7 @@ export default function LandingPage2() {
                                 <div id="ico">
                                     <a href="https://github.com/Mishel450">
                                         <div id='pic' style={{
-                                            backgroundImage: `url(/GitHub-icon.png)`,
+                                            backgroundImage: `url(/mishel_qr.png)`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             backgroundSize: 'cover'
@@ -135,7 +135,7 @@ export default function LandingPage2() {
                                 <div id="ico">
                                     <a href="https://github.com/knappygd">
                                         <div id='pic' style={{
-                                            backgroundImage: `url(/GitHub-icon.png)`,
+                                            backgroundImage: `url(/emilio_qr.png)`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             backgroundSize: 'cover'
@@ -157,7 +157,7 @@ export default function LandingPage2() {
                                 <div id="ico">
                                     <a href="https://github.com/LeoRod17">
                                         <div id='pic' style={{
-                                            backgroundImage: `url(/GitHub-icon.png)`,
+                                            backgroundImage: `url(/leonardo_qr.png)`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             backgroundSize: 'cover'
@@ -179,7 +179,7 @@ export default function LandingPage2() {
                                 <div id="ico">
                                     <a href="https://github.com/Korchea">
                                         <div id='pic' style={{
-                                            backgroundImage: `url(/GitHub-icon.png)`,
+                                            backgroundImage: `url(/guillermo_qr.png)`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                             backgroundSize: 'cover'

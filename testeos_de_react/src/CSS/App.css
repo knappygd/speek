@@ -107,7 +107,12 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
 
+#ico {
+  background-color: yellow;
+  width: 150px;
+  height: 150px;
 }
 
 #pics {
@@ -131,9 +136,4 @@ body {
 #banner {
   width: 600px;
   height: 300px;
-}
-
-#ico {
-  width: 10%;
-  height: 10%;
 }
