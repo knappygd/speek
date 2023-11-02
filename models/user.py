@@ -28,3 +28,18 @@ def search_user(username):
     data = supabase.table('users').select(
         'id').eq('username', username).execute()
     return data
+
+
+def modify_user(user_id: str, column: str, data):
+    """Update values associated with the user"""
+    updt = supabase.table('users').update(
+        {column: data}).eq('id', user_id).execute()
+
+
+def self_delete(ex_user: str):
+    """Deletes the user's own account"""
+    try:
+        user = supabase.table("users").delete().eq("username", ex_user)
+        return user
+    except:
+        raise Exception()
