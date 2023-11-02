@@ -34,7 +34,6 @@ export default function Chatpage({ user_id }) {
   });
 
   const [inputValue, setInputValue] = useState("");
-  console.log(inputValue);
 
   return (
     <div id="right-chat" style={{
@@ -62,6 +61,7 @@ export default function Chatpage({ user_id }) {
                 //const messageToSend = inputValue;
                 // Luego puedes hacer lo que necesites con el messageToSend
                 // Además, puedes limpiar el input después de presionar "Enter"
+                console.log(inputValue);
                 setInputValue("");
               }
             }}
