@@ -20,7 +20,7 @@ updated_at = str(datetime.now())
 custom_id = f"{randint(0, 9999):0{4}}"
 
 data = {
-    'email': 'enriquecabrera@gmail.com',
+    'email': 'emiliodamasco@gmail.com',
     'password': 'admin1234',
     'status': 1,
     'pfp': 'pfpurl.server.com',
@@ -29,7 +29,7 @@ data = {
     'created_at': created_at,
     'updated_at': updated_at,
     'custom_id': custom_id,
-    'username': 'Enrique Cabrera',
+    'username': 'Emilio Damasco',
 }
 
 # auth.signup(data)
@@ -37,5 +37,5 @@ auth.signin(data['email'], data['password'])
 listener.listen('ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
 """ while True:
     message = input("type your message: ")
-    messages.send_message(message, 'a89136d5-9fee-465e-af62-8b7c49c197ff',
-                          'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4') """
+    messages.send_message(hello,'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4', 'a89136d5-9fee-465e-af62-8b7c49c197ff')
+    messages.send_message(how are you,'ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4', 'a89136d5-9fee-465e-af62-8b7c49c197ff')"""

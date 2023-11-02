@@ -21,3 +21,10 @@ def list_free_users():
     """a method to list all user with the status 1(they are free for random chat)"""
     data = supabase.table('users').select('username').eq('status', 1).execute()
     return data
+
+
+def search_user(username):
+    """a function to search for a user by their username"""
+    data = supabase.table('users').select(
+        'id').eq('username', username).execute()
+    return data
