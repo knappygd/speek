@@ -4,7 +4,7 @@ import Message from "./Message";
 import React, { useState } from "react";
 
 
-export default function Chatpage({ user_id }) {
+export default function Chatpage({ user_id, mostrarCaja }) {
   let displaynone = {
     display: "none"
   };
@@ -42,6 +42,12 @@ export default function Chatpage({ user_id }) {
       backgroundPosition: 'center',
       backgroundSize: 'cover'
     }}>
+      {mostrarCaja && <div id="perfilebox">
+          <div className="topPerfilebox">
+            <p> {user_id} </p>
+            </div>
+
+        </div>}
       <div id="cont-chat">
         <div id="chat">
           {messages}

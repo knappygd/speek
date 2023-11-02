@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-
 import data_users from "../Data/data_users";
 import "../CSS/TopCard.css";
 
 
-export default function Topright({ user_id }) {
+export default function Topright({ user_id, toggleCaja }) {
 
   let title = "Choose a chat to talk";
   for (const user of data_users) {
@@ -13,17 +11,13 @@ export default function Topright({ user_id }) {
     }
   };
 
-
-  const [mostrarCaja, setMostrarCaja] = useState(false);
-
   const mostrarOcultarCaja = () => {
-    setMostrarCaja(!mostrarCaja);
+    toggleCaja();
   };
 
   return (
     <div id="Topright">
       <button onClick={mostrarOcultarCaja}><h1> {title} </h1></button>
-      {mostrarCaja && <div className="caja0"></div>}
     </div>
   )
 }
