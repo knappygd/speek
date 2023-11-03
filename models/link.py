@@ -5,23 +5,20 @@ from supabase import create_client
 import uuid
 from datetime import datetime
 from models import status
+
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
+
 link_id = uuid.uuid4()
 
 
 def new_link(sender_id, reciever_id):
-    """add a new status"""
-    structure = {
-        'link_id': str(link_id),
-        'sender_id': str(sender_id),
-        'receiver_id': str(reciever_id),
-        'linked_at': datetime.now
-    }
-    supabase.table('link').insert(structure).execute()
+    """add a new link"""
+    data = supabase.table('link').insert({'link_id': str(link_id), 'sender_id': str(
+        sender_id), 'receiver_id': str(reciever_id), 'linked_at': datetime.now}).execute()
     status.new_status(link_id)
-    return link_id
+    return data
 
 
 def search_link(lin_id):

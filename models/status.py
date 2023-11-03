@@ -7,17 +7,14 @@ import uuid
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
+
 status_id = uuid.uuid4()
 
 
 def new_status(link_id):
     """add a new status"""
-    structure = {
-        'status_id': str(status_id),
-        'status': 1,
-        'link_id': str(link_id)
-    }
-    supabase.table('status').insert(structure).execute()
+    supabase.table('status').insert(
+        {'status_id': status_id, 'status': 1, 'link_id': link_id}).execute()
 
 
 def search_status_id_by_link(link_id):
