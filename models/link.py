@@ -11,32 +11,41 @@ supabase = create_client(url, key)
 link_id = uuid.uuid4()
 
 
-def new_link(sender, reciever):
+def new_link(sender_id, reciever_id):
     """add a new status"""
     structure = {
         'link_id': str(link_id),
-        'sender_id': sender,
-        'receiver_id': reciever,
+        'sender_id': str(sender_id),
+        'receiver_id': str(reciever_id),
         'linked_at': datetime.now
     }
-    supabase.table('link').insert(structure)
+    supabase.table('link').insert(structure).execute()
     status.new_status(link_id)
     return link_id
 
 
 def search_link(lin_id):
     """a function that search for a link"""
-    supabase.table('link').select().eq('link_id', lin_id)
+    try:
+        supabase.table('link').select().eq('link_id', lin_id).execute()
+    except:
+        raise Exception()
 
 
-def block_user(sender, receiver):
+def block_user(sender_id, receiver_id):
     """a method to block users"""
-    link = new_link(sender, receiver)
-    stat = status.search_status_id_by_link(link)
-    status.block_friendship(stat)
+    try:
+        link = new_link(sender_id, receiver_id)
+        stat = status.search_status_id_by_link(link)
+        status.block_friendship(stat)
+    except:
+        raise Exception()
 
 
 def deletefriend(lin_id):
     """a function that delete the frienship between two users"""
-    supabase.table('status').delete().eq('link_id', lin_id).execute()
-    supabase.table('link').delete().eq('link_id', lin_id).execute()
+    try:
+        supabase.table('status').delete().eq('link_id', lin_id).execute()
+        supabase.table('link').delete().eq('link_id', lin_id).execute()
+    except:
+        raise Exception()

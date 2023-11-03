@@ -33,9 +33,14 @@ def delete_chat(chat_id):
     except:
         raise Exception()
 
+
 def search_chat(friend):
     """a function that search for the chat of the user"""
-    ch = supabase.table('chat').select('chat_id, users(id)').eq('username',friend)
-    
-    return ch
+    try:
 
+        ch = supabase.table('chat').select(
+            'chat_id, users(id)').eq('username', friend)
+
+        return ch
+    except:
+        raise Exception()

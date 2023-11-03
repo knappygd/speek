@@ -19,21 +19,31 @@ def list_users():
 
 def list_free_users():
     """a method to list all user with the status 1(they are free for random chat)"""
-    data = supabase.table('users').select('username').eq('status', 1).execute()
-    return data
+    try:
+        data = supabase.table('users').select('*').eq('status', 1).execute()
+        return data
+    except:
+        raise Exception()
 
 
 def search_user(username):
     """a function to search for a user by their username"""
-    data = supabase.table('users').select(
-        'id').eq('username', username).execute()
-    return data
+    try:
+
+        data = supabase.table('users').select(
+            'id').eq('username', username).execute()
+        return data
+    except:
+        raise Exception()
 
 
 def modify_user(user_id: str, column: str, data):
     """Update values associated with the user"""
-    updt = supabase.table('users').update(
-        {column: data}).eq('id', user_id).execute()
+    try:
+        updt = supabase.table('users').update(
+            {column: data}).eq('id', user_id).execute()
+    except:
+        raise Exception()
 
 
 def self_delete(ex_user: str):
