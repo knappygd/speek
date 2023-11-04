@@ -13,8 +13,12 @@ status_id = uuid.uuid4()
 
 def new_status(link_id):
     """add a new status"""
-    supabase.table('status').insert(
-        {'status_id': status_id, 'status': 1, 'link_id': link_id}).execute()
+    structure = {
+        'status_id': str(status_id),
+        'status': 1,
+        'link_id': str(link_id)
+    }
+    supabase.table('status').insert(structure).execute()
 
 
 def search_status_id_by_link(link_id):
@@ -40,7 +44,7 @@ def search_status(stat_id):
 def accept_friendship(stat_id):
     """upodates the status of the link so they accept the freinship"""
     try:
-        supabase.table('status').update('status', 2).eq(
+        supabase.table('status').update({'status': 2}).eq(
             'status_id', stat_id).execute()
     except:
         raise Exception()
@@ -49,7 +53,7 @@ def accept_friendship(stat_id):
 def block_friendship(stat_id):
     """a method to update the status of the link so that they block the user"""
     try:
-        supabase.table('status').update('status', 3).eq(
+        supabase.table('status').update({'status': 3}).eq(
             'status_id', stat_id).execute()
     except:
         raise Exception()

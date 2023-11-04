@@ -17,5 +17,7 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
-link.new_link('a89136d5-9fee-465e-af62-8b7c49c197ff',
-              '061bcaeb-c60b-44ed-bac1-58c2a151d119')
+# /link.block_user('a89136d5-9fee-465e-af62-8b7c49c197ff',
+# /              '061bcaeb-c60b-44ed-bac1-58c2a151d119')
+
+# / link.deletefriend('')
