@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 
 export default function Friends({ onCardClick }) {
 
-  const [users, setUsers] = useState([]);
+  const [data, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/get-users')
+    fetch("/get")
       .then((response) => response)
       .then((data) => {
         setUsers(data);
@@ -18,8 +18,7 @@ export default function Friends({ onCardClick }) {
       });
   }, []);
 
-  console.log(users);
-  console.log(setUsers);
+  console.log(data);
 
 
   const handleCardClick = (id) => {
