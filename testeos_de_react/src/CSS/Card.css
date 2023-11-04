@@ -30,3 +30,7 @@
     padding: 5px;
     text-align: left;
 }
+
+.Card h2 {
+    color: white;
+}
