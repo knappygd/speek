@@ -40,7 +40,6 @@ def search_chat(friend):
 
         ch = supabase.table('chat').select(
             'chat_id, users(id)').eq('username', friend)
-
         return ch
     except:
         raise Exception()
