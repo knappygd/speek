@@ -15,7 +15,7 @@ app = Flask(__name__)
 def get_users():
     """return all the users"""
     try:
-        result = supabase.table('users').select().execute()
+        result = supabase.table('users').select('*').execute()
         data = result.get('data', [])
         print(data)
         return jsonify(data)
@@ -24,4 +24,4 @@ def get_users():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=3000)
