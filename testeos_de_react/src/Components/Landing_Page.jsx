@@ -4,7 +4,7 @@ export default function LandingPage() {
     return (
         <div id='container'>
             <div id='logo' style={{
-                backgroundImage: `url(/logo-para-el-login-speek.png)`,
+                backgroundImage: `url(/logo-para-el-login-speek.svg)`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover'

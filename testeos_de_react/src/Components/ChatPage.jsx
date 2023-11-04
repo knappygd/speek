@@ -37,7 +37,7 @@ export default function Chatpage({ user_id, mostrarCaja }) {
 
   return (
     <div id="right-chat" style={{
-      backgroundImage: `url(/background-mainpage.png)`,
+      backgroundImage: `url(/background-mainpage.svg)`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundSize: 'cover'
