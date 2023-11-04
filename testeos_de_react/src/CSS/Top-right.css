@@ -13,3 +13,17 @@
 h1 {
   margin-left: 20px;
 }
+
+#Topright button {
+  background-color: white;
+  border: none;
+
+  padding: 0;
+  margin: 0;
+  text-align: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
