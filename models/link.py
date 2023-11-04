@@ -15,15 +15,22 @@ link_id = uuid.uuid4()
 
 def new_link(sender_id, reciever_id):
     """add a new link"""
-    structure = {
-        "link_id": str(link_id),
-        "sender_id": str(sender_id),
-        "receiver_id": str(reciever_id),
-        "linked_at": str(datetime.now())
-    }
-    data = supabase.table('link').insert(structure).execute()
-    status.new_status(link_id)
-    return data
+    data1 = supabase.table('link').select(
+        '*').match({'receiver_id': reciever_id, 'sender_id': sender_id}).execute()
+    data2 = supabase.table('link').select(
+        '*').match({'receiver_id': sender_id, 'sender_id': reciever_id}).execute()
+    if data1 == None and data2 == None:
+        structure = {
+            "link_id": str(link_id),
+            "sender_id": str(sender_id),
+            "receiver_id": str(reciever_id),
+            "linked_at": str(datetime.now())
+        }
+        data = supabase.table('link').insert(structure).execute()
+        status.new_status(link_id)
+        return data
+    else:
+        raise ('you are alredy connected')
 
 
 def search_link(lin_id):
