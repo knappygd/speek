@@ -59,10 +59,11 @@
 }
 
 #sender {
-  background-color: orange;
+  background: radial-gradient(at 20% 0%, #E65438, #F49640);
   align-items: center;
   max-width: 40%;
   margin-right: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #receiver {
@@ -70,6 +71,7 @@
   align-items: center;
   max-width: 40%;
   margin-left: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #blockmessage1,
@@ -85,4 +87,8 @@
 
 #blockmessage1 {
   flex-direction: row-reverse;
+}
+
+p {
+  color: white;
 }
