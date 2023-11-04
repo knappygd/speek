@@ -1,14 +1,9 @@
-import { NavLink } from "react-router-dom"
-
+import '../CSS/Landing_Page.css'
 export default function LandingPage2() {
     return (
-        <div id='container'>
-            <div id='logo' style={{
-                backgroundImage: `url(/logo-para-el-login-speek.png)`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-            }}></div>
+        <div id='container-landing'>
+            <div id='logo-landing'></div>
+            <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path></svg></div>
             <div id='login'>
                 <div id="bloque">
                     <div id="banner" style={{
@@ -24,14 +19,14 @@ export default function LandingPage2() {
                         desarrollando todo el proyecto, desde la planifiacion, organizacion, al desarrollo, testeo y produccion.
                         Nuestra plataforma busca ayudar a poliglotas a practicar para recuperar o mejorar su nivel en un lenguaje.
                     </h3>
-                    <NavLink to='/register' id="bloque">
+                    {/*<NavLink to='/register' id="bloque">
                         <button id='button-log' class='button-login' style={{
                             backgroundImage: `url(/Next_botton_Login.png)`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                             backgroundSize: 'cover'
                         }} to='/register'>SPEEKEA CONMIGO :)</button>
-                    </NavLink>
+                    </NavLink>*/}
                 </div>
             </div>
             <div id="bloque">
@@ -78,7 +73,7 @@ export default function LandingPage2() {
                         <h2>¿Quienes somos?</h2>
                     </div>
                     <div id="authors">
-                        <div id="pics">
+                        <div id="pics1">
                             <div id='pic' style={{
                                 backgroundImage: `url(/lucas.jpg)`,
                                 backgroundRepeat: 'no-repeat',
@@ -100,7 +95,7 @@ export default function LandingPage2() {
                                 </div>
                             </div>
                         </div>
-                        <div id="pics">
+                        <div id="pics2">
                             <div id='pic' style={{
                                 backgroundImage: `url(/mishel.jpg)`,
                                 backgroundRepeat: 'no-repeat',
@@ -122,7 +117,7 @@ export default function LandingPage2() {
                                 </div>
                             </div>
                         </div>
-                        <div id="pics">
+                        <div id="pics1">
                             <div id='pic' style={{
                                 backgroundImage: `url(/emilio.jpg)`,
                                 backgroundRepeat: 'no-repeat',
@@ -144,7 +139,7 @@ export default function LandingPage2() {
                                 </div>
                             </div>
                         </div>
-                        <div id="pics">
+                        <div id="pics2">
                             <div id='pic' style={{
                                 backgroundImage: `url(/leonardo.jpg)`,
                                 backgroundRepeat: 'no-repeat',
@@ -166,7 +161,7 @@ export default function LandingPage2() {
                                 </div>
                             </div>
                         </div>
-                        <div id="pics">
+                        <div id="pics1">
                             <div id='pic' style={{
                                 backgroundImage: `url(/guillermo.jpg)`,
                                 backgroundRepeat: 'no-repeat',
