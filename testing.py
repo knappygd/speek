@@ -18,5 +18,5 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 
-lista = user.list_users()
+lista = user.get_user_inicials('061bcaeb-c60b-44ed-bac1-58c2a151d119')
 print(lista)

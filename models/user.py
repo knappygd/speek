@@ -20,10 +20,11 @@ def list_users():
         raise Exception()
 
 
-def list_free_users():
+def list_free_users(lang_id):
     """a method to list all user with the status 1(they are free for random chat)"""
     try:
-        data = supabase.table('users').select('*').eq('status', 1).execute()
+        data = supabase.table('users').select(
+            '*').eq('language_id', lang_id).execute()
         return data
     except:
         raise Exception()
@@ -34,10 +35,18 @@ def search_user(username):
     try:
 
         data = supabase.table('users').select(
-            'id').eq('username', username).execute()
+            '*').eq('username', username).execute()
         return data
     except:
         raise Exception()
+
+
+def get_user_inicials(user_id):
+    """a function to search for a user by their username"""
+    data = supabase.table('users').select(
+        'username').eq('id', user_id).execute()
+    initial = str(data)[20]
+    return initial
 
 
 def modify_user(user_id: str, column: str, data):

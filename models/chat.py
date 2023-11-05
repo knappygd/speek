@@ -37,7 +37,6 @@ def delete_chat(chat_id):
 def search_chat(friend):
     """a function that search for the chat of the user"""
     try:
-
         ch = supabase.table('chat').select(
             'chat_id, users(id)').eq('username', friend)
         return ch
