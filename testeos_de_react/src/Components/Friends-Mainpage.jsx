@@ -2,13 +2,17 @@ import React from "react";
 import Card from './Card';
 import data_users from "../Data/data_users";
 
-export default function Friends({ onCardClick }) {
+export default function Friends({ onCardClick, busqueda2 = "" }) {
 
   const handleCardClick = (id) => {
     onCardClick(id);
   };
 
-  const users_list = data_users.map(i => {
+  const filteredUsers = data_users.filter((i) =>
+    busqueda2 ? i.name.startsWith(busqueda2) : true
+  );
+
+  const users_list = filteredUsers.map((i) => {
     return <Card
       title={i.name}
       description={i.description}
