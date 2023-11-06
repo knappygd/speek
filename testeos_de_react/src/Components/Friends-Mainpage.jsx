@@ -1,6 +1,7 @@
 import React from "react";
 import Card from './Card';
-import data_users from "../Data/data_users";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Friends({ onCardClick, busqueda2 = "" }) {
 
@@ -8,14 +9,28 @@ export default function Friends({ onCardClick, busqueda2 = "" }) {
     onCardClick(id);
   };
 
-  const filteredUsers = data_users.filter((i) =>
-    busqueda2 ? i.name.startsWith(busqueda2) : true
-  );
+  const baseURL = 'http://127.0.0.1:5000';
 
-  const users_list = filteredUsers.map((i) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${baseURL}/test_api/get_users`)
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  // const filteredUsers = data_users.filter((i) =>
+  //  busqueda2 ? i.name.startsWith(busqueda2) : true
+  // );  Needs fix
+
+  const users_list = data.map(i => {
     return <Card
-      title={i.name}
-      description={i.description}
+      title={i.username}
+      description={i.desc}
       user_id={i.id}
       onCardClick={handleCardClick}
     />

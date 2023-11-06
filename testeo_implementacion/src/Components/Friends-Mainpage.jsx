@@ -1,34 +1,32 @@
 import React from "react";
 import Card from './Card';
-import data_users from "../Data/data_users";
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function Friends({ onCardClick }) {
 
-  const [data, setUsers] = useState([]);
+  const baseURL = 'http://127.0.0.1:5000';
+
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/get")
-      .then((response) => response)
-      .then((data) => {
-        setUsers(data);
+    axios.get(`${baseURL}/test/get_users`)
+      .then(response => {
+        setData(response.data);
       })
-      .catch((error) => {
-        console.error('Error al obtener los usuarios:', error);
+      .catch(error => {
+        console.error(error);
       });
   }, []);
-
-  console.log(data);
-
 
   const handleCardClick = (id) => {
     onCardClick(id);
   };
 
-  const users_list = data_users.map(i => {
+  const users_list = data.map(i => {
     return <Card
-      title={i.name}
-      description={i.description}
+      title={i.username}
+      description={i.desc}
       user_id={i.id}
       onCardClick={handleCardClick}
     />
