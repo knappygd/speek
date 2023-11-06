@@ -15,11 +15,12 @@ link_id = uuid.uuid4()
 
 def new_link(sender_id, reciever_id):
     """add a new link"""
+    lista = []
     data1 = supabase.table('link').select(
         '*').match({'receiver_id': reciever_id, 'sender_id': sender_id}).execute()
     data2 = supabase.table('link').select(
         '*').match({'receiver_id': sender_id, 'sender_id': reciever_id}).execute()
-    if data1 == None and data2 == None:
+    if data1.data == lista  and data2.data == lista :
         structure = {
             "link_id": str(link_id),
             "sender_id": str(sender_id),
