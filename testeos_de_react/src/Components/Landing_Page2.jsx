@@ -1,4 +1,3 @@
-import '../CSS/Landing_Page.css'
 export default function LandingPage2() {
     return (
         <div id='container-landing'>
