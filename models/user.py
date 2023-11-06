@@ -46,7 +46,7 @@ def get_user_inicials(user_id):
     data = supabase.table('users').select(
         'username').eq('id', user_id).execute()
     initial = str(data)[20]
-    return initial
+    return initial.upper()
 
 
 def modify_user(user_id: str, column: str, data):
