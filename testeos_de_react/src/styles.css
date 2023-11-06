@@ -33,6 +33,7 @@ body {
   width: 70%;
   font-size: x-large;
   line-height: 1.5;
+  font-family: "Helvetica", sans-serif;
 }
 #container-landing-aboutus-start{
   min-height: 100px;
@@ -67,6 +68,7 @@ body {
   padding: 20px;
 }
 #bloque-text{
+  font-family: "Helvetica", sans-serif;
   font-size: x-large;
   flex: 0 0 40%;
   color: white;
@@ -79,6 +81,7 @@ body {
 #h1-size{
   font-size: 2em;
   font-weight: bold;
+  font-family: "Helvetica", sans-serif;
 }
 #text-talking-aboutus{
   text-align: center;
@@ -87,6 +90,7 @@ body {
   justify-content: center;
   flex-direction: column;
   display: flex;
+  font-family: "Helvetica", sans-serif;
 }
 #text-aboutus{
   width: 70%;
@@ -110,6 +114,7 @@ body {
   border-top-left-radius: 10px;
   border: 2px solid white;
   text-align: center;
+  font-family: "Helvetica", sans-serif;
 }
 #photos{
   width: 90%;
