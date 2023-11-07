@@ -20,7 +20,7 @@ updated_at = str(datetime.now())
 custom_id = f"{randint(0, 9999):0{4}}"
 
 data = {
-    'email': 'emiliodamasco@gmail.com',
+    'email': 'enriquecabrera@gmail.com',
     'password': 'admin1234',
     'status': 1,
     'pfp': 'pfpurl.server.com',
