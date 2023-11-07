@@ -69,14 +69,18 @@ def deletefriend(lin_id):
 
 def list_friends_links(user_id):
     """a method that returns all the id of the users who are friends"""
-    try:
-        lista = []
-        friend1 = supabase.table('link').select('receiver_id').match({'status': 2, 'sender_id': user_id}).execute()
-        friend2 = supabase.table('link').select('sender_id').match({'status': 2, 'receiver_id': user_id}).execute()
-        lista.append(friend1.data)
-        lista.append(friend2.data)
-        with open('friends.json', 'w') as f:
-            json.dump(lista, f)
-        return lista
-    except:
-        raise Exception('you have no friends :(')
+    lista = []
+    lista2 = []
+    friend1 = supabase.table('link').select('receiver_id').match({'status': 2, 'sender_id': user_id}).execute()
+    friend2 = supabase.table('link').select('sender_id').match({'status': 2, 'receiver_id': user_id}).execute()
+    lista.append(friend1.data)
+    lista.append(friend2.data)
+    for friend in friend1.data:
+        lista.append(friend)
+    for frien in friend2.data:
+        lista.append(frien)
+    for value in lista:
+        lista2.append(value)
+    with open('friends.json', 'w') as f:
+        json.dump(lista2, f)
+    return lista2
