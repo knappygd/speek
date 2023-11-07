@@ -4,7 +4,6 @@ import os
 from supabase import create_client
 import uuid
 from datetime import datetime
-from models import status
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -25,13 +24,30 @@ def new_link(sender_id, reciever_id):
             "link_id": str(link_id),
             "sender_id": str(sender_id),
             "receiver_id": str(reciever_id),
+            "status": 1,
             "linked_at": str(datetime.now())
         }
         data = supabase.table('link').insert(structure).execute()
-        status.new_status(link_id)
         return data
     else:
         raise ('you are alredy connected')
+
+def accept_friendship(link_id):
+    """upodates the status of the link so they accept the freinship"""
+    try:
+        supabase.table('link').update({'status': 2}).eq(
+            'link_id', link_id).execute()
+    except:
+        raise Exception()
+
+
+def block_friendship(link_id):
+    """a method to update the status of the link so that they block the user"""
+    try:
+        supabase.table('link').update({'status': 3}).eq(
+            'link_id', link_id).execute()
+    except:
+        raise Exception()
 
 
 def search_link(lin_id):
@@ -45,7 +61,15 @@ def search_link(lin_id):
 def deletefriend(lin_id):
     """a function that delete the frienship between two users"""
     try:
-        supabase.table('status').delete().eq('link_id', lin_id).execute()
         supabase.table('link').delete().eq('link_id', lin_id).execute()
     except:
         raise Exception()
+
+def list_friends_links(user_id):
+    """a method that returns all the id of the users who are friends"""
+    try:
+        friend1 = supabase.table('link').select('receiver_id').match({'status': 2, 'sender_id': user_id}).execute()
+        friend2 = supabase.table('link').select('sender_id').match({'status': 2, 'receiver_id': user_id}).execute()
+        return [friend1.data, friend2.data] 
+    except:
+        raise Exception('you have no friends :(')
