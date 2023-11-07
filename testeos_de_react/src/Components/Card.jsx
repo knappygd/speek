@@ -1,6 +1,6 @@
 import "../CSS/Card.css";
 
-export default function Card({ title = "titulo por defecto", last_message = "last message", friends_initials = "LS", onCardClick, user_id }) {
+export default function Card({ title = "titulo por defecto", last_message = "last message", user_id, friends_initials = "LS", onCardClick }) {
   const handleCardClick = () => {
     onCardClick(user_id);
   };

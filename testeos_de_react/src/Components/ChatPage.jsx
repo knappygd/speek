@@ -43,11 +43,11 @@ export default function Chatpage({ user_id, mostrarCaja }) {
       backgroundSize: 'cover'
     }}>
       {mostrarCaja && <div id="perfilebox">
-          <div className="topPerfilebox">
-            <p> {user_id} </p>
-            </div>
+        <div className="topPerfilebox">
+          <p> {user_id} </p>
+        </div>
 
-        </div>}
+      </div>}
       <div id="cont-chat">
         <div id="chat">
           {messages}

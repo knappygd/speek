@@ -5,7 +5,7 @@ import "../CSS/Search_friends.css"
 export default function SearchFriends() {
     const [busqueda, setBusqueda] = useState("");
 
-    console.log("Valor inicial de busqueda:", busqueda);
+    // console.log("Valor inicial de busqueda:", busqueda);
 
     /*const handleInputChange = (e) => {
         setBusqueda(e.target.value);
@@ -21,13 +21,13 @@ export default function SearchFriends() {
                     backgroundSize: '30px 30px',
                     backgroundPositionX: 'right'
                 }}></div>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     placeholder="Find friend"
                     id="buscador"
                     value={busqueda}
                     /*onChange={handleInputChange}*/
-                    onChange={ (e) => setBusqueda(e.target.value)}
+                    onChange={(e) => setBusqueda(e.target.value)}
                     onKeyPress={(e) => {
                         if (e.key === "Enter") {
                             console.log("Búsqueda realizada:", busqueda);

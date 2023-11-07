@@ -31,8 +31,8 @@ export default function Mainpage1() {
         <SearchFriends busqueda={handleBusquedaChange} />
       </div>
       <div id="right">
-        <Topright user_id={toprightTitle} toggleCaja={toggleCaja}/>
-        <Chatpage user_id={toprightTitle} mostrarCaja={mostrarCaja}/>
+        <Topright user_id={toprightTitle} toggleCaja={toggleCaja} />
+        <Chatpage user_id={toprightTitle} mostrarCaja={mostrarCaja} />
       </div>
     </div>
   )
