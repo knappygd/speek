@@ -19,4 +19,5 @@ supabase = create_client(url, key)
 created_at = str(datetime.now())
 updated_at = str(datetime.now())
 
-chat.generate_chat('d30dd8e0-f51a-4791-9a8c-70c471e1f80d')
+li = link.list_friends_links('a89136d5-9fee-465e-af62-8b7c49c197ff')
+print(li)
