@@ -1,10 +1,34 @@
-import data_messages from "../Data/data_messages";
-import data_user_chat from "../Data/data_user_chat";
 import Message from "./Message";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 
 export default function Chatpage({ user_id, mostrarCaja }) {
+  const baseURL = 'http://127.0.0.1:5000';
+
+  const [user, setId] = useState("a89136d5-9fee-465e-af62-8b7c49c197ff");
+  const [chat, setChat] = useState("0");
+  const [messageList, setMessage] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response1 = await axios.get(`${baseURL}/test_api/get_id`);
+        setId(response1.data);
+
+        const response2 = await axios.get(`${baseURL}/test_api/search_chat/${user}/${user_id}`);
+        setChat(response2.data);
+
+        const response3 = await axios.get(`${baseURL}/test_api/list_message/${chat}`);
+        setMessage(response3.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [user_id, user, user_id, chat]);
+
   let displaynone = {
     display: "none"
   };
@@ -13,24 +37,11 @@ export default function Chatpage({ user_id, mostrarCaja }) {
     displaynone = {};
   }
 
-  let chat_id = 1000;
-  for (const chat of data_user_chat) {
-    if (chat.user_id === user_id) {
-      chat_id = chat.chat_id;
-    }
-  };
-
-  let message_list = [];
-  for (const message of data_messages) {
-    if (message.chat_id === chat_id) {
-      message_list.push(message);
-    }
-  };
-
-  let messages = message_list.map(i => {
+  let messages = messageList.map(i => {
     return <Message
       sender={i.sender}
-      content={i.content} />
+      content={i.content}
+      user_id={user} />
   });
 
   const [inputValue, setInputValue] = useState("");

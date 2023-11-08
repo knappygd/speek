@@ -7,7 +7,6 @@ export default function Friends({ onCardClick, busqueda2 = "" }) {
   const baseURL = 'http://127.0.0.1:5000';
 
   const [data, setData] = useState([]);
-
   useEffect(() => {
     axios.get(`${baseURL}/test_api/get_users`)
       .then(response => {

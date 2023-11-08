@@ -84,12 +84,22 @@ def search_user(user_id):
 @app.route('/test_api/search_chat/<user_id>/<friend_id>', methods=['GET'])
 def search_chat(user_id, friend_id):
     """a function that search for the chat of the user"""
-    try:
-        ch = supabase.table('chat').select(
-            'chat_id').eq('user_1', user_id, 'user_2', friend_id)
-        return ch
-    except:
-        raise Exception()
+    lista = []
+    ch = supabase.table('chats').select('chat_id').match(
+        {'user_1': friend_id, 'user_2': user_id}).execute()
+    if ch.data == lista:
+        ch = supabase.table('chats').select('chat_id').match(
+            {'user_2': friend_id, 'user_1': user_id}).execute()
+    chat = ch.data
+    return chat[0]["chat_id"]
+
+
+@app.route('/test_api/list_message/<chat_id>', methods=['GET'])
+def list_message(chat_id):
+    """a function that shows the last 50 messages of a chat"""
+    data = supabase.table('messages').select('*').match(
+        {'chat_id': chat_id}).order('messages_id').execute()
+    return data.data
 
 
 if __name__ == "__main__":

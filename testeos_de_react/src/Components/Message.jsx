@@ -1,6 +1,6 @@
-export default function Message({ sender, content }) {
+export default function Message({ sender, content, user_id }) {
 
-    if (sender === 20) {
+    if (sender === user_id) {
         return (
             <div id="blockmessage1">
                 <p className="msj_box" id="sender"> {content} </p>
