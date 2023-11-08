@@ -19,5 +19,5 @@ supabase = create_client(url, key)
 created_at = str(datetime.now())
 updated_at = str(datetime.now())
 
-li = link.list_friends_links('a89136d5-9fee-465e-af62-8b7c49c197ff')
-print(li)
+mi = messages.list_message('ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
+print(mi)
