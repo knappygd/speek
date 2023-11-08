@@ -24,5 +24,5 @@ def send_message(content, to_user, in_chat):
 def list_message(chat_id):
     """a function that shows the last 50 messages of a chat"""
     data = supabase.table('messages').select('*').match(
-        {'chat_id': chat_id}).order('messages_id', desc=True).range(1, 50).execute()
+        {'chat_id': chat_id}).order('messages_id', desc=True).execute()
     return data

@@ -19,5 +19,5 @@ supabase = create_client(url, key)
 created_at = str(datetime.now())
 updated_at = str(datetime.now())
 
-mi = messages.list_message('ea2ea75b-1f37-4a10-bd21-3a96b64b1cf4')
+mi = messages.list_message('da0c888b-965b-477a-b021-b5a1570aa362')
 print(mi)
