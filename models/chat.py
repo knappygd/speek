@@ -6,6 +6,7 @@ from models import auth
 from models import user
 import uuid
 import random
+from models import auth
 from supabase import create_client
 
 url: str = os.environ.get("SUPABASE_URL")
@@ -13,16 +14,17 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 chat_id = uuid.uuid4()
-
-
-def generate_chat():
+session = str(auth.getid())
+def generate_chat(user_id):
     structure = {
         'chat_id': str(chat_id),
-        'user_1': "a89136d5-9fee-465e-af62-8b7c49c197ff",
-        'user_2': "061bcaeb-c60b-44ed-bac1-58c2a151d119",
-        'topic_id': 1,
+        'user_1': session,
+        'user_2': str(user_id),
+        'topic_id': 0,
     }
     supabase.table('chats').insert(structure).execute()
+    supabase.table('users_chats').insert({'user_id': str(session), 'chat_id': str(chat_id)}).execute()
+    supabase.table('users_chats').insert({'user_id': str(user_id), 'chat_id': str(chat_id)}).execute()
     return chat_id
 
 
