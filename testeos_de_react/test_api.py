@@ -102,5 +102,18 @@ def list_message(chat_id):
     return data.data
 
 
+@app.route('/test_api/send_message/<content>/<to_user>/<in_chat>', methods=['GET'])
+def send_message(content, to_user, in_chat):
+    with open('session.json', 'r') as f:
+        data = json.load(f)
+    structure = {
+        'content': content,
+        'sender': data['id'][14:50],
+        'receiver': to_user,
+        'chat_id': in_chat
+    }
+    supabase.table('messages').insert(structure).execute()
+
+
 if __name__ == "__main__":
     app.run(threaded=True)

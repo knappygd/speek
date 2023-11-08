@@ -74,11 +74,11 @@ export default function Chatpage({ user_id, mostrarCaja }) {
             onChange={(e) => setInputValue(e.target.value)} // Manejador de eventos para el cambio del input
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                // Aquí puedes acceder al valor de inputValue y usarlo para enviar el mensaje
-                //const messageToSend = inputValue;
-                // Luego puedes hacer lo que necesites con el messageToSend
-                // Además, puedes limpiar el input después de presionar "Enter"
-                console.log(inputValue);
+                try {
+                  axios.get(`${baseURL}/test_api/send_message/${inputValue}/${user_id}/${chat}`);
+                } catch (error) {
+                  console.error(error);
+                }
                 setInputValue("");
               }
             }}
