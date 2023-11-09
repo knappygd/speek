@@ -9,7 +9,7 @@ export default function Topright({ user_id, toggleCaja }) {
   let title = "Choose a chat to talk"; // Título predeterminado
   useEffect(() => {
     if (user_id !== null) {
-      axios.get(`${baseURL}/test_api/search_user/${user_id}`)
+      axios.get(`${baseURL}/api/v1/search_user/${user_id}`)
         .then(response => {
           setUser(response.data);
         })

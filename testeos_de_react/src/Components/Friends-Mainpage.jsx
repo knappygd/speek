@@ -3,12 +3,12 @@ import Card from './Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function Friends({ onCardClick, busqueda2 = "" }) {
+export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
   const baseURL = 'http://127.0.0.1:5000';
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get(`${baseURL}/test_api/get_users`)
+    axios.get(`${baseURL}/api/v1/get_users`)
       .then(response => {
         setData(response.data);
       })
@@ -17,24 +17,13 @@ export default function Friends({ onCardClick, busqueda2 = "" }) {
       });
   }, []);
 
-  const [user_id, setId] = useState("a89136d5-9fee-465e-af62-8b7c49c197ff");
-  useEffect(() => {
-    axios.get(`${baseURL}/test_api/get_id`)
-      .then(response => {
-        setId(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
-  const handleCardClick = (user_id) => {
-    onCardClick(user_id);
+  const handleCardClick = (personal_id) => {
+    onCardClick(personal_id);
   };
 
   const [friends, setFriends] = useState([]);
   useEffect(() => {
-    axios.get(`${baseURL}/test_api/list_friends/${user_id}`)
+    axios.get(`${baseURL}/api/v1/list_friends/${personal_id}`)
       .then(response => {
         setFriends(response.data);
       })
@@ -42,6 +31,7 @@ export default function Friends({ onCardClick, busqueda2 = "" }) {
         console.error(error);
       });
   }, []);
+
   const user_friends = [];
   for (const user of data) {
     for (const friend_id of friends)

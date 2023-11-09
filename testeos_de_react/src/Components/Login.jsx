@@ -14,7 +14,7 @@ export default function Login() {
   const [data, setData] = useState([]);
   const handleLogin = () => {
     // Realiza la solicitud a la API al hacer clic en el botón
-    axios.get(`${baseURL}/test_api/signin/${emailValue}/${passwordValue}`)
+    axios.get(`${baseURL}/api/v1/signin/${emailValue}/${passwordValue}`)
       .then(response => {
         setData(response.data);
         if (response.data === '1') {

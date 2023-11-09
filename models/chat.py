@@ -15,6 +15,8 @@ supabase = create_client(url, key)
 
 chat_id = uuid.uuid4()
 session = str(auth.getid())
+
+
 def generate_chat(user_id):
     structure = {
         'chat_id': str(chat_id),
@@ -23,8 +25,10 @@ def generate_chat(user_id):
         'topic_id': 0,
     }
     supabase.table('chats').insert(structure).execute()
-    supabase.table('users_chats').insert({'user_id': str(session), 'chat_id': str(chat_id)}).execute()
-    supabase.table('users_chats').insert({'user_id': str(user_id), 'chat_id': str(chat_id)}).execute()
+    supabase.table('users_chats').insert(
+        {'user_id': str(session), 'chat_id': str(chat_id)}).execute()
+    supabase.table('users_chats').insert(
+        {'user_id': str(user_id), 'chat_id': str(chat_id)}).execute()
     return chat_id
 
 
@@ -36,10 +40,13 @@ def delete_chat(chat_id):
         raise Exception()
 
 
-def search_chat(friend):
+def search_chat(user_id, friend_id):
     """a function that search for the chat of the user"""
     lista = []
-    ch = supabase.table('chats').select('chat_id').match({'user_1': friend, 'user_2': session}).execute()
+    ch = supabase.table('chats').select('chat_id').match(
+        {'user_1': friend_id, 'user_2': user_id}).execute()
     if ch.data == lista:
-            ch = supabase.table('chats').select('chat_id').match({'user_2': friend, 'user_1': session}).execute()
-    return ch
+        ch = supabase.table('chats').select('chat_id').match(
+            {'user_2': friend_id, 'user_1': user_id}).execute()
+    chat = ch.data
+    return chat[0]["chat_id"]

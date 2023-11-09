@@ -25,9 +25,14 @@ def signup(data):
 
 def signin(email, password):
     """Sign in a user with email and password."""
-    session = supabase.auth.sign_in_with_password(
-        {"email": email, "password": password})
-    uid = supabase.table('users').select('id').eq('email', email).execute()
+    try:
+        supabase.auth.sign_in_with_password(
+            {"email": email, "password": password})
+        uid = supabase.table('users').select('id').eq('email', email).execute()
+        state = '1'
+    except:
+        state = '0'
+        uid = "data=[] count=None"
     data = {
         'email': email,
         'password': password,
@@ -35,7 +40,7 @@ def signin(email, password):
     }
     with open('session.json', 'w') as f:
         json.dump(data, f)
-    return session
+    return state
 
 
 def signout():

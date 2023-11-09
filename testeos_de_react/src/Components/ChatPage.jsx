@@ -3,31 +3,27 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 
-export default function Chatpage({ user_id, mostrarCaja }) {
+export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
   const baseURL = 'http://127.0.0.1:5000';
 
-  const [user, setId] = useState("a89136d5-9fee-465e-af62-8b7c49c197ff");
-  const [chat, setChat] = useState("0");
   const [messageList, setMessage] = useState([]);
+  const [chat, setChat] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response1 = await axios.get(`${baseURL}/test_api/get_id`);
-        setId(response1.data);
+        const response1 = await axios.get(`${baseURL}/api/v1/get_chat/${user_id}`);
+        setMessage(response1.data);
 
-        const response2 = await axios.get(`${baseURL}/test_api/search_chat/${user}/${user_id}`);
+        const response2 = await axios.get(`${baseURL}/api/v1/search_chat/${personal_id}/${user_id}`);
         setChat(response2.data);
-
-        const response3 = await axios.get(`${baseURL}/test_api/list_message/${chat}`);
-        setMessage(response3.data);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, [user_id, user, user_id, chat]);
+  }, [user_id, messageList, chat]);
 
   let displaynone = {
     display: "none"
@@ -41,7 +37,7 @@ export default function Chatpage({ user_id, mostrarCaja }) {
     return <Message
       sender={i.sender}
       content={i.content}
-      user_id={user} />
+      user_id={personal_id} />
   });
 
   const [inputValue, setInputValue] = useState("");
@@ -75,7 +71,7 @@ export default function Chatpage({ user_id, mostrarCaja }) {
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 try {
-                  const response4 = axios.post(`${baseURL}/test_api/send_message/${inputValue}/${user_id}/${chat}`);
+                  const response4 = axios.post(`${baseURL}/api/v1/send_message/${inputValue}/${user_id}/${chat}`);
                 } catch (error) {
                   console.error(error);
                 }

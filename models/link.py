@@ -21,7 +21,7 @@ def new_link(sender_id, reciever_id):
         '*').match({'receiver_id': reciever_id, 'sender_id': sender_id}).execute()
     data2 = supabase.table('link').select(
         '*').match({'receiver_id': sender_id, 'sender_id': reciever_id}).execute()
-    if data1.data == lista  and data2.data == lista :
+    if data1.data == lista and data2.data == lista:
         structure = {
             "link_id": str(link_id),
             "sender_id": str(sender_id),
@@ -33,6 +33,7 @@ def new_link(sender_id, reciever_id):
         return data
     else:
         raise ('you are alredy connected')
+
 
 def accept_friendship(link_id):
     """upodates the status of the link so they accept the freinship"""
@@ -67,20 +68,16 @@ def deletefriend(lin_id):
     except:
         raise Exception()
 
+
 def list_friends_links(user_id):
     """a method that returns all the id of the users who are friends"""
+    friend1 = supabase.table('link').select('receiver_id').match(
+        {'status': 2, 'sender_id': user_id}).execute()
+    friend2 = supabase.table('link').select('sender_id').match(
+        {'status': 2, 'receiver_id': user_id}).execute()
     lista = []
-    lista2 = []
-    friend1 = supabase.table('link').select('receiver_id').match({'status': 2, 'sender_id': user_id}).execute()
-    friend2 = supabase.table('link').select('sender_id').match({'status': 2, 'receiver_id': user_id}).execute()
-    lista.append(friend1.data)
-    lista.append(friend2.data)
-    for friend in friend1.data:
-        lista.append(friend)
-    for frien in friend2.data:
-        lista.append(frien)
-    for value in lista:
-        lista2.append(value)
-    with open('friends.json', 'w') as f:
-        json.dump(lista2, f)
-    return lista2
+    for friend_id in friend1.data:
+        lista.append(friend_id["receiver_id"])
+    for friend_id in friend2.data:
+        lista.append(friend_id["sender_id"])
+    return lista

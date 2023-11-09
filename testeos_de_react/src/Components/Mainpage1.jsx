@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Friends from "./Friends-Mainpage"
 import Chatpage from "./ChatPage"
 import Topleft from "./Top-left"
 import Topright from "./Top-right"
 import SearchFriends from "./Search_friends"
+import axios from 'axios';
 
 export default function Mainpage1() {
   const [toprightTitle, setToprightTitle] = useState(null);
@@ -23,16 +24,28 @@ export default function Mainpage1() {
     setBusqueda(nuevaBusqueda);
   };
 
+  const baseURL = 'http://127.0.0.1:5000';
+  const [personal_id, setId] = useState("a89136d5-9fee-465e-af62-8b7c49c197ff");
+  useEffect(() => {
+    axios.get(`${baseURL}/api/v1/get_id`)
+      .then(response => {
+        setId(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div id="container-mainpage1">
       <div id="left">
         <Topleft />
-        <Friends onCardClick={handleCardClick} busqueda2={busqueda1} />
+        <Friends onCardClick={handleCardClick} busqueda2={busqueda1} personal_id={personal_id} />
         <SearchFriends busqueda={handleBusquedaChange} />
       </div>
       <div id="right">
         <Topright user_id={toprightTitle} toggleCaja={toggleCaja} />
-        <Chatpage user_id={toprightTitle} mostrarCaja={mostrarCaja} />
+        <Chatpage user_id={toprightTitle} mostrarCaja={mostrarCaja} personal_id={personal_id} />
       </div>
     </div>
   )

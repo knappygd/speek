@@ -14,8 +14,9 @@ speek_id = uuid.uuid4()
 def list_users():
     """method to list all users"""
     try:
-        data = supabase.table('users').select('*').execute()
-        return data
+        response = supabase.table('users').select('*').execute()
+        data = response.data
+        return (data)
     except:
         raise Exception()
 
@@ -30,13 +31,13 @@ def list_free_users(lang_id):
         raise Exception()
 
 
-def search_user(username):
+def search_user(user_id):
     """a function to search for a user by their username"""
     try:
-
         data = supabase.table('users').select(
-            '*').eq('username', username).execute()
-        return data
+            '*').eq('id', user_id).execute()
+        user = data.data
+        return user[0]
     except:
         raise Exception()
 
