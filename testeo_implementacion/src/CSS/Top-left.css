@@ -1,0 +1,46 @@
+#left {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+#Topleft {
+  flex: 0 0 80px;
+  min-height: 80px;
+  display: flex;
+
+  align-items: center;
+}
+
+#Button-Notification {
+  height: 40px;
+  width: 60px;
+  min-height: 40px;
+  min-width: 60px;
+  margin-left: 25px;
+}
+
+#Button-Chat-1 {
+  height: 25px;
+  width: 40px;
+  min-height: 25px;
+  min-width: 40px;
+  margin-left: 60px;
+}
+
+#Button-Video-1 {
+  height: 25px;
+  width: 40px;
+  min-height: 25px;
+  min-width: 40px;
+  margin-left: 20px;
+}
+
+#Button-Bot-1 {
+  height: 25px;
+  width: 40px;
+  min-height: 25px;
+  min-width: 40px;
+  margin-left: 20px;
+}

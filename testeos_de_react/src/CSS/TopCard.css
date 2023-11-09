@@ -1,0 +1,24 @@
+#perfilebox {
+    height: 500px;
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 19px;
+    position: absolute;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.topPerfilebox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: blueviolet;
+    border-radius: 10px;
+
+    height: 100px;
+
+
+}
