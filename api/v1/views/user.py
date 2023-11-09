@@ -4,6 +4,7 @@ import os
 from supabase import create_client
 from api.v1.views import app_views
 from models import auth, chat, language, link, listener, messages, random_topics, topics, user
+import time
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -55,7 +56,7 @@ def list_message(chat_id):
 @app_views.route('/send_message/<content>/<to_user>/<in_chat>', methods=['POST'])
 def send_message(content, to_user, in_chat):
     try:
-        messages.send_message(content, to_user, in_chat)
+        return messages.send_message(content, to_user, in_chat)
     except Exception as e:
         print(f"Error: {str(e)}")
 
@@ -64,4 +65,5 @@ def send_message(content, to_user, in_chat):
 def get_chat(user_id):
     session_id = auth.getid()
     chat_id = chat.search_chat(session_id, user_id)
+    time.sleep(1)
     return messages.list_message(chat_id)
