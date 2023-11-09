@@ -75,7 +75,7 @@ export default function Chatpage({ user_id, mostrarCaja }) {
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 try {
-                  axios.get(`${baseURL}/test_api/send_message/${inputValue}/${user_id}/${chat}`);
+                  const response4 = axios.post(`${baseURL}/test_api/send_message/${inputValue}/${user_id}/${chat}`);
                 } catch (error) {
                   console.error(error);
                 }

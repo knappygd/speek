@@ -102,7 +102,7 @@ def list_message(chat_id):
     return data.data
 
 
-@app.route('/test_api/send_message/<content>/<to_user>/<in_chat>', methods=['GET'])
+@app.route('/test_api/send_message/<content>/<to_user>/<in_chat>', methods=['POST'])
 def send_message(content, to_user, in_chat):
     with open('session.json', 'r') as f:
         data = json.load(f)
@@ -113,6 +113,7 @@ def send_message(content, to_user, in_chat):
         'chat_id': in_chat
     }
     supabase.table('messages').insert(structure).execute()
+    return "sex mode"
 
 
 if __name__ == "__main__":
