@@ -25,7 +25,7 @@ export default function Mainpage1() {
   };
 
   const baseURL = 'http://127.0.0.1:5000';
-  const [personal_id, setId] = useState("a89136d5-9fee-465e-af62-8b7c49c197ff");
+  const [personal_id, setId] = useState("");
   useEffect(() => {
     axios.get(`${baseURL}/api/v1/get_id`)
       .then(response => {

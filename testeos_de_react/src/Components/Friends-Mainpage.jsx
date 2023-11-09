@@ -4,33 +4,43 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
-  const baseURL = 'http://127.0.0.1:5000';
-
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios.get(`${baseURL}/api/v1/get_users`)
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
 
   const handleCardClick = (personal_id) => {
     onCardClick(personal_id);
   };
 
+  const baseURL = 'http://127.0.0.1:5000';
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
+    if (personal_id !== "") {
+      axios.get(`${baseURL}/api/v1/get_users`)
+        .then(response => {
+          setData(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }, [personal_id]);  // Asegúrate de que el efecto se ejecute nuevamente cuando personal_id cambie
+
+
   const [friends, setFriends] = useState([]);
   useEffect(() => {
-    axios.get(`${baseURL}/api/v1/list_friends/${personal_id}`)
-      .then(response => {
-        setFriends(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
+    if (personal_id !== "") {
+      axios.get(`${baseURL}/api/v1/list_friends/${personal_id}`)
+        .then(response => {
+          setFriends(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }, [personal_id]);  // Asegúrate de que el efecto se ejecute nuevamente cuando personal_id cambie
+
+
 
   const user_friends = [];
   for (const user of data) {
