@@ -21,8 +21,9 @@
 #lupita{
     height: 30px;
     width: 40px;
-    min-height: 30px;
-    min-width: 30px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 10px;
 }
 #buscador{
     width: 100%;
@@ -31,4 +32,9 @@
     background: none;
     height: 100%;
     outline: none;
+    margin-left: 10px;
+    font-size: 130%;
+    font-weight: bold;
+    color: #5E5E5D;
+
 }
