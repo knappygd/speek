@@ -8,11 +8,7 @@ import './CSS/Top-right.css';
 import SignUpLogin from './Components/SignUp-Login';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
-import MainPage from './Components/Main-Page';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LandingPage from './Components/Landing_Page';
-import LandingPage2 from './Components/Landing_Page2';
-import Authors from './Components/Authors';
 import Mainpage1 from './Components/Mainpage1';
 
 
@@ -23,14 +19,10 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='' element={<LandingPage />} />
-          <Route path='landing' element={<LandingPage2 />} />
-          <Route path='authors' element={<Authors />} />
-          <Route path='register' element={<SignUpLogin />} />
+          <Route path='/' element={<SignUpLogin />} />
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<SignUp />} />
-          <Route path='mainpage' element={<MainPage />} />
-          <Route path='mainpage1' element={<Mainpage1 />} />
+          <Route path='mainpage' element={<Mainpage1 />} />
         </Routes>
       </BrowserRouter>
     </div>

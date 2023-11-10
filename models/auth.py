@@ -29,9 +29,9 @@ def signin(email, password):
         supabase.auth.sign_in_with_password(
             {"email": email, "password": password})
         uid = supabase.table('users').select('id').eq('email', email).execute()
-        state = '1'
+        state = "exist"
     except:
-        state = '0'
+        state = "not exist"
         uid = "data=[] count=None"
     data = {
         'email': email,

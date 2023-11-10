@@ -67,3 +67,8 @@ def get_chat(user_id):
     chat_id = chat.search_chat(session_id, user_id)
     time.sleep(1)
     return messages.list_message(chat_id)
+
+
+@app_views.route('/singup/<email>/<password>', metheds=['GET'])
+def signup(email, password):
+    return auth.signup({"email": email, "password": password})

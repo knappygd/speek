@@ -11,21 +11,21 @@ export default function Login() {
 
   const navigate = useNavigate();
   const baseURL = 'http://127.0.0.1:5000';
-  const [data, setData] = useState([]);
+  const [data, setData] = useState("not exist");
   const handleLogin = () => {
     // Realiza la solicitud a la API al hacer clic en el botón
     axios.get(`${baseURL}/api/v1/signin/${emailValue}/${passwordValue}`)
       .then(response => {
         setData(response.data);
-        if (response.data === '1') {
-          navigate("/mainpage1");
-        }
       })
       .catch(error => {
         console.error(error);
       });
   };
   console.log(data);
+  if (data === "exist") {
+    navigate("/mainpage");
+  }
 
   const aparecererror = () => {
     // Aquí utilizamos la referencia 'error' para mostrar el error
