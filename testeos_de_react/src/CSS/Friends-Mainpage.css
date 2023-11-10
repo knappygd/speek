@@ -8,9 +8,9 @@
 }
 
 #temporary_chats {
-  flex: 0 0 calc(50vh - 80px);
+  flex: 0 0 calc(40vh - 80px);
   /* El contenido dentro de #temporary_chats ocupa el 100% del espacio vertical de #left-friends. */
-  background-color: #c6c6c6;
+  background-color: #ffffff;
   /* Color de fondo de #temporary_chats (puedes personalizarlo). */
   width: 100%;
 }
@@ -45,16 +45,24 @@
 }
 
 #friendsplus {
+  display: flex;
   min-height: 40px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: xx-large;
+  /*font-size: xx-large;*/
+  color: #BFBEBE;
+  font-size: 150%;
 }
 
 #people {
-  height: 90%;
-  width: 100%;
+  height: calc(40vh - 100px);
+  width: 90%;
+  background-color: #ECECEC;
+  margin-top: 19px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 11px;
 }
 
 #randomchatbutton {
@@ -63,14 +71,12 @@
   justify-content: space-between;
 
   background-color: #56565d;
-  width: 90%;
+  width: 100%;
   height: 10%;
   min-height: 50px;
   border-radius: 10px;
   
-  margin-top: 19px;
-  margin-left: auto;
-  margin-right: auto;
+
 }
 
 #randomchat {
