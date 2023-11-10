@@ -5,11 +5,18 @@ from supabase import create_client
 from api.v1.views import app_views
 from models import auth, chat, language, link, listener, messages, random_topics, topics, user
 import time
+import uuid
+from datetime import datetime
+from random import randint
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 session = ""
+
+created_at = str(datetime.now())
+updated_at = str(datetime.now())
+custom_id = f"{randint(0, 9999):0{4}}"
 
 
 @app_views.route('/get_users', methods=['GET'])
@@ -69,6 +76,6 @@ def get_chat(user_id):
     return messages.list_message(chat_id)
 
 
-@app_views.route('/singup/<email>/<password>', metheds=['GET'])
-def signup(email, password):
-    return auth.signup({"email": email, "password": password})
+@app_views.route('/signup/<username>/<email>/<password>/<desc>', methods=['GET'])
+def signup(username, email, password, desc):
+    return auth.signup({"pfp": "pfpuser", "country": "Uruguay", "created_at": created_at, "updated_at": updated_at, "id": str(uuid.uuid4()), "username": username, "email": email, "password": password, "desc": desc, "status": 1, 'custom_id': custom_id})

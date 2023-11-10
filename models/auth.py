@@ -3,6 +3,7 @@
 import os
 import json
 from supabase import create_client
+import time
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -17,10 +18,15 @@ def signup(data):
             'email': data['email'],
             'password': data['password'],
         })
+        signin(data["email"], data["password"])
+        return "already exist"
     except:
         raise Exception
     finally:
         supabase.table('users').insert(data).execute()
+        time.sleep(1)
+        signin(data["email"], data["password"])
+        return "created"
 
 
 def signin(email, password):

@@ -7,7 +7,10 @@ from models import user
 import uuid
 import random
 from models import auth
+from models import language
+from models import link
 from supabase import create_client
+
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -50,3 +53,12 @@ def search_chat(user_id, friend_id):
             {'user_2': friend_id, 'user_1': user_id}).execute()
     chat = ch.data
     return chat[0]["chat_id"]
+
+def random_chat(lang_id):
+    """a funtion to create a random chat"""
+    ran = random.randint(1, 6)
+    lista = supabase.table('speaks').select('user_id').match({'lang_id': lang_id}).order('user_id', desc=True).range(ran-1, ran).execute()
+    usu = lista.data
+    print(usu[0]["user_id"])
+    link.generete_random_link(session, usu[0]["user_id"])
+    return generate_chat(usu[0]["user_id"])
