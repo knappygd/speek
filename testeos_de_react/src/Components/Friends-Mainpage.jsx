@@ -68,15 +68,16 @@ export default function Friends({ onCardClick, busqueda2 = "" }) {
     <div id="left-friends">
       <div id='temporary_chats'>
         <div id="people">
-        <div id="randomchatbutton">
-          <button id="randomchat">Random Chat</button>
-          <div id="stick">
-            <select name="languages" id="languageRCB">
-              <option value="eng" id="options">ENG</option>
-              <option value="esp" id="options">ESP</option>
-            </select>
+          <div id="randomchatbutton">
+            <button id="randomchat">Random Chat</button>
+            <div id="stick">
+              <select name="languages" id="languageRCB">
+                <option value="eng" id="options">ENG</option>
+                <option value="esp" id="options">ESP</option>
+              </select>
+            </div>
           </div>
-          </div>
+          <div id="insideOfpeople"></div>
         </div>
       </div>
       <div id='cont-all'>

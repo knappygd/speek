@@ -56,6 +56,8 @@
 }
 
 #people {
+  display: flex;
+  flex-direction: column;
   height: calc(40vh - 100px);
   width: 90%;
   background-color: #ECECEC;
@@ -63,6 +65,15 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 11px;
+}
+
+#insideOfpeople {
+  background-color: aquamarine;
+  height: 100%;
+  width: 100%;
+  margin-top: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 #randomchatbutton {
@@ -75,7 +86,7 @@
   height: 10%;
   min-height: 50px;
   border-radius: 10px;
-  
+
 
 }
 
@@ -106,7 +117,7 @@
   border-bottom-right-radius: 10px;
   color: rgb(255, 255, 255);
   font-size: 100%;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 #stick {
