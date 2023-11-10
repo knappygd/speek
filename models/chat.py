@@ -56,9 +56,10 @@ def search_chat(user_id, friend_id):
 
 def random_chat(lang_id):
     """a funtion to create a random chat"""
-    ran = random.randint(1, 6)
+    ran = random.randint(1, 10)
     lista = supabase.table('speaks').select('user_id').match({'lang_id': lang_id}).order('user_id', desc=True).range(ran-1, ran).execute()
     usu = lista.data
-    print(usu[0]["user_id"])
-    link.generete_random_link(session, usu[0]["user_id"])
+    if usu[0]["user_id"] == session:
+        lista = supabase.table('speaks').select('user_id').match({'lang_id': lang_id}).order('user_id', desc=True).range(ran-1, ran).execute()
+    li = link.generete_random_link(session, usu[0]["user_id"])
     return generate_chat(usu[0]["user_id"])
