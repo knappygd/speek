@@ -6,7 +6,7 @@ import Topright from "./Top-right"
 import SearchFriends from "./Search_friends"
 import axios from 'axios';
 
-export default function Mainpage1() {
+export default function Mainpage() {
   const [toprightTitle, setToprightTitle] = useState(null);
   const [mostrarCaja, setMostrarCaja] = useState(false);
   const [busqueda1, setBusqueda] = useState("");

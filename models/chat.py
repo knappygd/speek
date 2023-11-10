@@ -17,7 +17,7 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
 
 chat_id = uuid.uuid4()
-session = str(auth.getid())
+session = auth.getid()
 
 
 def generate_chat(user_id):
@@ -32,7 +32,7 @@ def generate_chat(user_id):
         {'user_id': str(session), 'chat_id': str(chat_id)}).execute()
     supabase.table('users_chats').insert(
         {'user_id': str(user_id), 'chat_id': str(chat_id)}).execute()
-    return chat_id
+    return str(chat_id)
 
 
 def delete_chat(chat_id):
@@ -54,12 +54,16 @@ def search_chat(user_id, friend_id):
     chat = ch.data
     return chat[0]["chat_id"]
 
+
 def random_chat(lang_id):
     """a funtion to create a random chat"""
-    ran = random.randint(1, 10)
-    lista = supabase.table('speaks').select('user_id').match({'lang_id': lang_id}).order('user_id', desc=True).range(ran-1, ran).execute()
+    ran = random.randint(1, 7)
+    lista = supabase.table('speaks').select('user_id').match(
+        {'lang_id': lang_id}).range(ran-1, ran).execute()
     usu = lista.data
-    if usu[0]["user_id"] == session:
-        lista = supabase.table('speaks').select('user_id').match({'lang_id': lang_id}).order('user_id', desc=True).range(ran-1, ran).execute()
+    while usu[0]["user_id"] == session:
+        lista = supabase.table('speaks').select('user_id').match(
+            {'lang_id': lang_id}).range(ran-1, ran).execute()
     li = link.generete_random_link(session, usu[0]["user_id"])
-    return generate_chat(usu[0]["user_id"])
+    generate_chat(usu[0]["user_id"])
+    return usu[0]["user_id"]

@@ -9,7 +9,7 @@ import SignUpLogin from './Components/SignUp-Login';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Mainpage1 from './Components/Mainpage1';
+import Mainpage from './Components/Mainpage';
 
 
 // Definimos un componente funcional llamado "Contador"
@@ -22,7 +22,7 @@ function App() {
           <Route path='/' element={<SignUpLogin />} />
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<SignUp />} />
-          <Route path='mainpage' element={<Mainpage1 />} />
+          <Route path='mainpage' element={<Mainpage />} />
         </Routes>
       </BrowserRouter>
     </div>

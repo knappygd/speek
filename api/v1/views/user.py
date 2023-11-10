@@ -79,3 +79,13 @@ def get_chat(user_id):
 @app_views.route('/signup/<username>/<email>/<password>/<desc>', methods=['GET'])
 def signup(username, email, password, desc):
     return auth.signup({"pfp": "pfpuser", "country": "Uruguay", "created_at": created_at, "updated_at": updated_at, "id": str(uuid.uuid4()), "username": username, "email": email, "password": password, "desc": desc, "status": 1, 'custom_id': custom_id})
+
+
+@app_views.route('/get_random_chat', methods=['GET'])
+def get_random_chat():
+    return chat.random_chat(1)
+
+
+@app_views.route('/list_random/<user_id>', methods=['GET'])
+def list_random(user_id):
+    return link.list_random(user_id)

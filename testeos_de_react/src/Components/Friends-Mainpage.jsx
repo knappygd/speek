@@ -64,12 +64,53 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
     />
   })
 
+  const [random_id, setRandom] = useState("");
+  const handleRandom = () => {
+    // Realiza la solicitud a la API al hacer clic en el botón
+    axios.get(`${baseURL}/api/v1/get_random_chat`)
+      .then(response => {
+        setRandom(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+  const [random_list, setRandomList] = useState("");
+  useEffect(() => {
+    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
+    if (personal_id !== "") {
+      axios.get(`${baseURL}/api/v1/list_random/${personal_id}`)
+        .then(response => {
+          setRandomList(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }, [personal_id]);
+
+  const user_random = [];
+  for (const user of data) {
+    for (const random of random_list)
+      if (user.id === random) {
+        user_random.push(user);
+      }
+  };
+  const list_random = user_random.map(i => {
+    return <Card
+      title={i.username}
+      description={i.desc}
+      user_id={i.id}
+      onCardClick={handleCardClick}
+    />
+  })
+
   return (
     <div id="left-friends">
       <div id='temporary_chats'>
         <div id="people">
           <div id="randomchatbutton">
-            <button id="randomchat">Random Chat</button>
+            <button id="randomchat" onClick={handleRandom}>Random Chat</button>
             <div id="stick">
               <select name="languages" id="languageRCB">
                 <option value="eng" id="options">ENG</option>
@@ -77,6 +118,7 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
               </select>
             </div>
           </div>
+          {list_random}
         </div>
       </div>
       <div id='cont-all'>
