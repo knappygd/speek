@@ -42,6 +42,19 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
 
   const [inputValue, setInputValue] = useState("");
 
+  const [topic, setTopic] = useState("")
+  const handleTopic = () => {
+    // Realiza la solicitud a la API al hacer clic en el botón
+    axios.get(`${baseURL}/api/v1/random_topic`)
+      .then(response => {
+        setTopic(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+  console.log(topic);
+
   return (
     <div id="right-chat" style={{
       backgroundImage: `url(/background-mainpage.svg)`,
@@ -79,7 +92,7 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
               }
             }}
           ></input>
-          <input type="submit" id="enviar-mensaje"></input>
+          <input type="submit" id="enviar-mensaje" onClick={handleTopic}></input>
         </div>
       </div>
     </div>

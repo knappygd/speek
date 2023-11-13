@@ -21,8 +21,9 @@ def dictionary_topics():
     except:
         raise Exception()
 
+
 def search_topic():
     """a function that returns the topic"""
-    ran = random.randint(1,10)
+    ran = random.randint(1, 10)
     topic = supabase.table('topics').select('topic').eq('id', ran).execute()
-    return topic
+    return topic.data

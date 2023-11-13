@@ -89,3 +89,8 @@ def get_random_chat():
 @app_views.route('/list_random/<user_id>', methods=['GET'])
 def list_random(user_id):
     return link.list_random(user_id)
+
+
+@app_views.route('/random_topic', methods=['GET'])
+def random_topic():
+    return topics.search_topic()
