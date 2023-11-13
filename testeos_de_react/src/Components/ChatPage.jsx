@@ -55,8 +55,15 @@ export default function Chatpage({ user_id, mostrarCaja }) {
     }}>
       {mostrarCaja && <div id="perfilebox">
         <div className="topPerfilebox">
-          <p> {user_id} </p>
+          <p> User Name </p>
         </div>
+        <div className="descriptionBox">
+          <p>Bio</p>
+          <h3>Descripcio</h3>
+        </div>
+        <button className="friendRequestButton">
+          <h3>Send friend request</h3>
+        </button>
 
       </div>}
       <div id="cont-chat">
