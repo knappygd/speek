@@ -4,54 +4,63 @@ body {
   margin: 0;
   padding: 0;
 }
-#container-landing{
+
+#container-landing {
   height: 200px;
-  background: #F49640; 
-  background: -webkit-linear-gradient(to bottom, #E65438, #F49640); 
+  background: #F49640;
+  background: -webkit-linear-gradient(to bottom, #E65438, #F49640);
   background: linear-gradient(to bottom, #E65438, #F49640);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#marea-landing{
-}
-#img-logo-blanco{
+
+#marea-landing {}
+
+#img-logo-blanco {
   width: 200px;
   height: 200px;
 }
-#speek_word_logo{
+
+#speek_word_logo {
   height: 40vh;
   width: 100vh;
 }
-#div-speek-word-logo{
+
+#div-speek-word-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#text-talking-of-speek{
+
+#text-talking-of-speek {
   text-align: center;
   width: 70%;
   font-size: x-large;
   line-height: 1.5;
   font-family: "Helvetica", sans-serif;
 }
-#container-landing-aboutus-start{
+
+#container-landing-aboutus-start {
   min-height: 100px;
-  background: #F49640; 
-  background: -webkit-linear-gradient(to top, #E65438, #F49640); 
+  background: #F49640;
+  background: -webkit-linear-gradient(to top, #E65438, #F49640);
   background: linear-gradient(to top, #E65438, #F49640);
 }
-#container-landing-aboutus{
+
+#container-landing-aboutus {
   background: #E65438;
   height: fit-content;
 }
-#container-landing-aboutus-end{
+
+#container-landing-aboutus-end {
   min-height: 100px;
-  background: #F49640; 
-  background: -webkit-linear-gradient(to bottom, #E65438, #F49640); 
+  background: #F49640;
+  background: -webkit-linear-gradient(to bottom, #E65438, #F49640);
   background: linear-gradient(to bottom, #E65438, #F49640);
 }
-#img-about{
+
+#img-about {
   font-size: 2em;
   flex: 0 0 55%;
   border: 2px solid white;
@@ -60,14 +69,17 @@ body {
   border-bottom-right-radius: 10px;
   border-top-left-radius: 10px;
   background-color: white;
+  max-width: 675px;
 }
-#bloque{
+
+#bloque {
   height: 350px;
   display: flex;
   justify-content: center;
   padding: 20px;
 }
-#bloque-text{
+
+#bloque-text {
   font-family: "Helvetica", sans-serif;
   font-size: x-large;
   flex: 0 0 40%;
@@ -78,12 +90,14 @@ body {
   justify-content: center;
   align-items: center;
 }
-#h1-size{
+
+#h1-size {
   font-size: 2em;
   font-weight: bold;
   font-family: "Helvetica", sans-serif;
 }
-#text-talking-aboutus{
+
+#text-talking-aboutus {
   text-align: center;
   font-size: x-large;
   line-height: 1.5;
@@ -92,15 +106,19 @@ body {
   display: flex;
   font-family: "Helvetica", sans-serif;
 }
-#text-aboutus{
+
+#text-aboutus {
   width: 70%;
   justify-content: center;
   display: flex;
 }
-#authors{
+
+#authors {
   display: flex;
 }
-#pics1, #pics2{
+
+#pics1,
+#pics2 {
   width: 19%;
   margin-left: 10px;
   margin-right: 10px;
@@ -116,44 +134,51 @@ body {
   text-align: center;
   font-family: "Helvetica", sans-serif;
 }
-#photos{
+
+#photos {
   width: 90%;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-#pics1{
-  background: #F49640; 
-  background: -webkit-linear-gradient(to bottom, #E65438, #F49640); 
+
+#pics1 {
+  background: #F49640;
+  background: -webkit-linear-gradient(to bottom, #E65438, #F49640);
   background: linear-gradient(to bottom, #E65438, #F49640);
 }
-#pics2{
-  background: #F49640; 
-  background: -webkit-linear-gradient(to top, #E65438, #F49640); 
+
+#pics2 {
+  background: #F49640;
+  background: -webkit-linear-gradient(to top, #E65438, #F49640);
   background: linear-gradient(to top, #E65438, #F49640);
 }
-#pic_text{
+
+#pic_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
 }
-#ico{
+
+#ico {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#container-landing-end{
+
+#container-landing-end {
   height: 200px;
-  background: #F49640; 
-  background: -webkit-linear-gradient(to top, #E65438, #F49640); 
+  background: #F49640;
+  background: -webkit-linear-gradient(to top, #E65438, #F49640);
   background: linear-gradient(to top, #E65438, #F49640);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#githubicon{
+
+#githubicon {
   height: 70%;
 }
