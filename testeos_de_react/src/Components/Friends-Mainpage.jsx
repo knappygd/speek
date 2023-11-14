@@ -2,6 +2,7 @@ import React from "react";
 import Card from './Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import CardRandom from "./CardRandom";
 
 export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
 
@@ -97,7 +98,7 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
       }
   };
   const list_random = user_random.map(i => {
-    return <Card
+    return <CardRandom
       title={i.username}
       description={i.desc}
       user_id={i.id}
