@@ -95,3 +95,11 @@ def list_random(user_id):
 def random_topic():
     top = topics.search_topic()
     return top[0]["topic"]
+
+
+@app_views.route('/add_friend/<user_id>', methods=['POST'])
+def add_friend(user_id):
+    personal_id = auth.getid()
+    link_id = link.search_link(personal_id, user_id)
+    supabase.table('link').update({'status': 2}).eq(
+        'link_id', link_id[0]["link_id"]).execute()

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from models import chat
 import os
 import json
 from supabase import create_client
@@ -10,7 +11,6 @@ from models import auth
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
-from models import chat
 link_id = uuid.uuid4()
 
 
@@ -41,7 +41,7 @@ def accept_friendship(link_id, user_id):
         supabase.table('link').update({'status': 2}).eq(
             'link_id', link_id).execute()
         chat.generate_chat(user_id)
-        
+
     except:
         raise Exception()
 
@@ -58,13 +58,15 @@ def block_friendship(link_id):
 def search_link(receiver_id, sender_id):
     """a function that search for a link"""
     lista = []
-    lk = supabase.table('link').select('link_id').match({'receiver_id': receiver_id, 'sender_id': sender_id}).execute()
+    lk = supabase.table('link').select('link_id').match(
+        {'receiver_id': receiver_id, 'sender_id': sender_id}).execute()
     if lk == lista:
-        lk = supabase.table('link').select('link_id').match({'receiver_id': sender_id, 'sender_id': receiver_id}).execute()
+        lk = supabase.table('link').select('link_id').match(
+            {'receiver_id': sender_id, 'sender_id': receiver_id}).execute()
     if lk == lista:
         raise Exception('no existe un link')
     else:
-        return lk
+        return lk.data
 
 
 def deletefriend(lin_id):
@@ -87,6 +89,7 @@ def list_friends_links(user_id):
     for friend_id in friend2.data:
         lista.append(friend_id["sender_id"])
     return lista
+
 
 def generete_random_link(reciever_id, sender_id):
     """a method to start a link in 0 relation"""

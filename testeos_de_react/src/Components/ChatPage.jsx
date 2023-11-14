@@ -43,6 +43,13 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
   const [inputValue, setInputValue] = useState("");
 
   const [topic, setTopic] = useState("");
+  const handleFriend = () => {
+    // Realiza la solicitud a la API al hacer clic en el botón
+    axios.post(`${baseURL}/api/v1/add_friend/${user_id}`)
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   return (
     <div id="right-chat" style={{
@@ -64,7 +71,7 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
         <div className="descriptionBox3">
           <p>Lenguages</p>
         </div>
-        <button className="friendRequestButton">
+        <button className="friendRequestButton" onClick={handleFriend}>
           <h3>Send friend request</h3>
         </button>
 
