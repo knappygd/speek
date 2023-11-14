@@ -7,6 +7,8 @@
     background-color: rgb(255, 255, 255);
     border: none;
     padding: 0;
+    user-select: none;
+    cursor: pointer;
 }
 
 .perfilLogo {
@@ -33,4 +35,8 @@
 
 .Card h2 {
     color: white;
+}
+
+.Card h4 {
+    color: #A0A09F;
 }

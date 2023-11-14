@@ -6,7 +6,8 @@
     align-items: center;
     justify-content: center;
 }
-#searcher{
+
+#searcher {
     height: 60%;
     width: 80%;
     border-top-right-radius: 10px;
@@ -18,17 +19,25 @@
     display: flex;
     align-items: center;
 }
-#lupita{
+
+#lupita {
     height: 30px;
     width: 40px;
-    min-height: 30px;
-    min-width: 30px;
+    min-height: 20px;
+    min-width: 20px;
+    margin-left: 10px;
 }
-#buscador{
+
+#buscador {
     width: 100%;
     font-size: x-large;
     border: none;
     background: none;
     height: 100%;
     outline: none;
+    margin-left: 10px;
+    font-size: 130%;
+    font-weight: bold;
+    color: #5E5E5D;
+
 }
