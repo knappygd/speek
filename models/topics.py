@@ -24,6 +24,6 @@ def dictionary_topics():
 
 def search_topic():
     """a function that returns the topic"""
-    ran = random.randint(1, 10)
+    ran = random.randint(1, 31)
     topic = supabase.table('topics').select('topic').eq('id', ran).execute()
     return topic.data
