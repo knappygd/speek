@@ -93,4 +93,5 @@ def list_random(user_id):
 
 @app_views.route('/random_topic', methods=['GET'])
 def random_topic():
-    return topics.search_topic()
+    top = topics.search_topic()
+    return top[0]["topic"]
