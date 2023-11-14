@@ -6,7 +6,7 @@ export default function Topright({ user_id, toggleCaja }) {
 
   const baseURL = 'http://127.0.0.1:5000';
   const [user, setUser] = useState([]);
-  let title = "Choose a chat to talk"; // Título predeterminado
+  let title = "Choose a chat to talk";
   useEffect(() => {
     if (user_id !== null) {
       axios.get(`${baseURL}/api/v1/search_user/${user_id}`)

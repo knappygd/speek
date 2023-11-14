@@ -44,7 +44,6 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
 
   const [topic, setTopic] = useState("");
   const handleFriend = () => {
-    // Realiza la solicitud a la API al hacer clic en el botón
     axios.post(`${baseURL}/api/v1/add_friend/${user_id}`)
       .catch(error => {
         console.error(error);
@@ -87,8 +86,8 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
             type="text"
             placeholder="Type a message..."
             id="barra"
-            value={inputValue} // Establece el valor del input en el estado
-            onChange={(e) => setInputValue(e.target.value)} // Manejador de eventos para el cambio del input
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
                 try {

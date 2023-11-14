@@ -20,7 +20,7 @@ export default function Mainpage() {
   };
 
   const handleBusquedaChange = (nuevaBusqueda) => {
-    console.log("Búsqueda recibida en Mainpage1:", nuevaBusqueda);
+    console.log("Búsqueda recibida en Mainpage:", nuevaBusqueda);
     setBusqueda(nuevaBusqueda);
   };
 

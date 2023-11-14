@@ -1,8 +1,8 @@
 import React from "react";
 import Card from './Card';
+import CardRandom from "./CardRandom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import CardRandom from "./CardRandom";
 
 export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
 
@@ -14,7 +14,6 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
     if (personal_id !== "") {
       axios.get(`${baseURL}/api/v1/get_users`)
         .then(response => {
@@ -24,12 +23,11 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
           console.error(error);
         });
     }
-  }, [personal_id]);  // Asegúrate de que el efecto se ejecute nuevamente cuando personal_id cambie
+  }, [personal_id]);
 
 
   const [friends, setFriends] = useState([]);
   useEffect(() => {
-    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
     if (personal_id !== "") {
       axios.get(`${baseURL}/api/v1/list_friends/${personal_id}`)
         .then(response => {
@@ -39,8 +37,7 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
           console.error(error);
         });
     }
-  }, [personal_id]);  // Asegúrate de que el efecto se ejecute nuevamente cuando personal_id cambie
-
+  }, [personal_id]);
 
 
   const user_friends = [];
@@ -67,7 +64,6 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
 
   const [random_id, setRandom] = useState("");
   const handleRandom = () => {
-    // Realiza la solicitud a la API al hacer clic en el botón
     axios.get(`${baseURL}/api/v1/get_random_chat`)
       .then(response => {
         setRandom(response.data);
@@ -78,7 +74,6 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
   };
   const [random_list, setRandomList] = useState("");
   useEffect(() => {
-    // Verifica si personal_id no es una cadena vacía antes de hacer la llamada a la API
     if (personal_id !== "") {
       axios.get(`${baseURL}/api/v1/list_random/${personal_id}`)
         .then(response => {

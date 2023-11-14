@@ -13,7 +13,6 @@ export default function Login() {
   const baseURL = 'http://127.0.0.1:5000';
   const [data, setData] = useState("not exist");
   const handleLogin = () => {
-    // Realiza la solicitud a la API al hacer clic en el botón
     axios.get(`${baseURL}/api/v1/signin/${emailValue}/${passwordValue}`)
       .then(response => {
         setData(response.data);
@@ -26,13 +25,6 @@ export default function Login() {
   if (data === "exist") {
     navigate("/mainpage");
   }
-
-  const aparecererror = () => {
-    // Aquí utilizamos la referencia 'error' para mostrar el error
-    if (error.current) {
-      error.current.style.display = 'block';
-    }
-  };
 
   return (
     <div id='container'>

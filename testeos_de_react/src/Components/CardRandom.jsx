@@ -12,7 +12,6 @@ export default function CardRandom({ title = "titulo por defecto", last_message 
             </div>
             <div className="userInfoR">
                 <h3>{title}</h3>
-                <h4>{last_message}</h4>
             </div>
         </button>
     );

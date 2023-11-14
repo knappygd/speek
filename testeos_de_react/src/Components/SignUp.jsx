@@ -15,7 +15,6 @@ export default function SignUp() {
   const baseURL = 'http://127.0.0.1:5000';
   const [data, setData] = useState("not exist");
   const handleSignup = () => {
-    // Realiza la solicitud a la API al hacer clic en el botón
     axios.get(`${baseURL}/api/v1/signup/${nameValue}/${emailValue}/${passwordValue}/${descValue}`)
       .then(response => {
         setData(response.data);
