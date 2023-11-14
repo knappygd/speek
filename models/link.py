@@ -55,12 +55,16 @@ def block_friendship(link_id):
         raise Exception()
 
 
-def search_link(lin_id):
+def search_link(receiver_id, sender_id):
     """a function that search for a link"""
-    try:
-        supabase.table('link').select().eq('link_id', lin_id).execute()
-    except:
-        raise Exception()
+    lista = []
+    lk = supabase.table('link').select('link_id').match({'receiver_id': receiver_id, 'sender_id': sender_id}).execute()
+    if lk == lista:
+        lk = supabase.table('link').select('link_id').match({'receiver_id': sender_id, 'sender_id': receiver_id}).execute()
+    if lk == lista:
+        raise Exception('no existe un link')
+    else:
+        return lk
 
 
 def deletefriend(lin_id):
