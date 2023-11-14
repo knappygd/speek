@@ -57,9 +57,14 @@ export default function Chatpage({ user_id, mostrarCaja }) {
         <div className="topPerfilebox">
           <p> User Name </p>
         </div>
-        <div className="descriptionBox">
+        <div className="descriptionBox1">
           <p>Bio</p>
-          <h3>Descripcio</h3>
+        </div>
+        <div className="descriptionBox2">
+        <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</h4>
+        </div>
+        <div className="descriptionBox3">
+        <p>Lenguages</p>
         </div>
         <button className="friendRequestButton">
           <h3>Send friend request</h3>
