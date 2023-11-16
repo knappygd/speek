@@ -59,16 +59,17 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
     }}>
       {mostrarCaja && <div id="perfilebox">
         <div className="topPerfilebox">
-          <p> User Name </p>
         </div>
         <div className="descriptionBox1">
-          <p>Bio</p>
+          <p>Description</p>
         </div>
         <div className="descriptionBox2">
-          <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</h4>
+          <h4>I wanted to practice my English on this web page</h4>
         </div>
         <div className="descriptionBox3">
-          <p>Lenguages</p>
+          <p>Languages</p>
+          <p>English</p>
+          <p>Spanish</p>
         </div>
         <button className="friendRequestButton" onClick={handleFriend}>
           <h3>Send friend request</h3>
@@ -111,7 +112,17 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
             }
             fetchData();
           }}
-          >Topic</button>
+          style={{
+            backgroundImage: `url(/dados.svg)`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '40px 40px',
+            userSelect: 'none',
+            cursor: 'pointer',
+            border: "none",
+            padding: 0,
+          }}
+        >
+          </button>
         </div>
       </div>
     </div>

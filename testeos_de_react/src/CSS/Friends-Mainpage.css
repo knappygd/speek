@@ -58,7 +58,7 @@
 #people {
   display: flex;
   flex-direction: column;
-  height: calc(40vh - 100px);
+  height: calc(50vh - 80px);
   width: 90%;
   background-color: #ECECEC;
   margin-top: 19px;
@@ -68,12 +68,14 @@
 }
 
 #insideOfpeople {
-  background-color: aquamarine;
-  height: 100%;
+  background-color: rgb(255, 255, 255);
+  height: calc(50vh - 130px);
   width: 100%;
   margin-top: 0px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 #randomchatbutton {

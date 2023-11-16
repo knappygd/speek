@@ -24,6 +24,10 @@ def get_users():
     """return all the users"""
     return user.list_users()
 
+@app_views.route('/get_user/<user_id>', methods=['GET'])
+def get_user(user_id):
+    """return the specific user"""
+    return user.search_user(user_id)
 
 @app_views.route('/signin/<email>/<password>', methods=['GET'])
 def signin(email, password):
@@ -40,6 +44,11 @@ def list_friends(user_id):
 @app_views.route('/get_id', methods=['GET'])
 def getid():
     return auth.getid()
+
+
+@app_views.route('/listar_lenguages_usu/<user_id>', methods=['GET'])
+def listar_lenguages_usu(user_id):
+    return language.list_languages_user(user_id)
 
 
 @app_views.route('/search_user/<user_id>', methods=['GET'])
@@ -72,7 +81,7 @@ def send_message(content, to_user, in_chat):
 def get_chat(user_id):
     session_id = auth.getid()
     chat_id = chat.search_chat(session_id, user_id)
-    time.sleep(1)
+    time.sleep(4)
     return messages.list_message(chat_id)
 
 

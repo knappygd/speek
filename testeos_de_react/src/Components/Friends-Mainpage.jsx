@@ -111,10 +111,13 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
               <select name="languages" id="languageRCB">
                 <option value="eng" id="options">ENG</option>
                 <option value="esp" id="options">ESP</option>
+                <option value="3" id="options">GER</option>
               </select>
             </div>
           </div>
+          <div id="insideOfpeople">
           {list_random}
+          </div>
         </div>
       </div>
       <div id='cont-all'>
