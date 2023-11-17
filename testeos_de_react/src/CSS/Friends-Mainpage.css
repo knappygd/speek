@@ -44,6 +44,10 @@
   flex-direction: column;
 }
 
+#colorfriends{
+  color: black;
+}
+
 #friendsplus {
   display: flex;
   min-height: 40px;
@@ -51,7 +55,7 @@
   justify-content: center;
   align-items: center;
   /*font-size: xx-large;*/
-  color: #BFBEBE;
+  color: #d4d4d4;
   font-size: 150%;
 }
 

@@ -122,7 +122,7 @@ export default function Friends({ onCardClick, busqueda2 = "", personal_id }) {
       </div>
       <div id='cont-all'>
         <div id='friendsplus'>
-          <div>
+          <div id="colorfriends">
             Friends
           </div>
         </div>

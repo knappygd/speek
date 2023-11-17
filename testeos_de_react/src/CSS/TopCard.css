@@ -48,7 +48,6 @@
     background-color: rgb(255, 255, 255);
     height: 10%;
     width: 90%;
-
 }
 
 .descriptionBox2 {
@@ -70,13 +69,14 @@
 }
 
 .descriptionBox1 p {
-    color: #BFBEBE;
+    color: black;
     margin-bottom: 0px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .descriptionBox2 h4 {
-    color: #5E5E5D;
+    color: black;
     margin-top: 10px;
     font-weight: normal;
     /* Establece el grosor de la fuente a normal (no negrita) */
@@ -84,7 +84,11 @@
 }
 
 .descriptionBox3 p {
-    color: #BFBEBE;
+    color: black;
     margin-top: 5px;
     font-size: 14px;
+}
+
+.lan{
+    font-weight: bold;
 }

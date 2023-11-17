@@ -67,7 +67,7 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
           <h4>I wanted to practice my English on this web page</h4>
         </div>
         <div className="descriptionBox3">
-          <p>Languages</p>
+          <p class='lan'>Languages</p>
           <p>English</p>
           <p>Spanish</p>
         </div>
@@ -105,7 +105,7 @@ export default function Chatpage({ user_id, mostrarCaja, personal_id }) {
               try {
                 const response5 = await axios.get(`${baseURL}/api/v1/random_topic`);
                 setTopic(response5.data);
-                const response4 = await axios.post(`${baseURL}/api/v1/send_message/Lets going to talk about ${topic}/${user_id}/${chat}`);
+                const response4 = await axios.post(`${baseURL}/api/v1/send_message/Lets talk about ${topic}/${user_id}/${chat}`);
               } catch (error) {
                 console.error(error);
               }
